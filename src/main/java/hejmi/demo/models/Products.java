@@ -1,9 +1,7 @@
 package hejmi.demo.models;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -11,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Products {
 
     @Id
@@ -32,4 +29,8 @@ public class Products {
 
     private Double product_price;
     private int stock;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brandid",nullable = true)
+    private Brands brands;
 }

@@ -10,20 +10,15 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Categories {
+public class Brands {
 
     @Id
-    @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 10)
-    private Long parent_category_id;
-
     @Column(length = 32)
-    private String category_name;
+    private String brand_name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private List<Products> product = new ArrayList<Products>();
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brands")
+    private List<Products> products = new ArrayList<Products>();
 }
