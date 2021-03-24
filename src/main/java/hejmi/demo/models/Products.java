@@ -1,11 +1,13 @@
 package hejmi.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -44,7 +46,7 @@ public class Products {
     private Vat vat;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "skuid", nullable = true)
+    @JoinColumn(name = "skuid")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private SKU skus;
+    private SKU sku;
 }

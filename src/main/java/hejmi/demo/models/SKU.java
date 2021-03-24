@@ -1,10 +1,12 @@
 package hejmi.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,17 +17,18 @@ public class SKU {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String sku;
+
     private int stock;
     private Double price_diff;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "skuid", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Products product;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sku")
+    @JsonIgnore
+    private List<Products> product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "attributeoptions", nullable = true)
+    @JoinColumn(name = "attributeoptionsid", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private AttributeOptions attributeOptions;
 }
