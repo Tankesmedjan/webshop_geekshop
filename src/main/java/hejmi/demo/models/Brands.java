@@ -1,5 +1,6 @@
 package hejmi.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,5 +21,6 @@ public class Brands {
     private String brand_name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "brands")
+    @JsonIgnore
     private List<Products> products = new ArrayList<Products>();
 }

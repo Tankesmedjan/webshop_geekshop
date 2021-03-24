@@ -5,27 +5,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-public class Categories {
+public class Attribute {
 
     @Id
-    @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 10)
-    private Long parent_category_id;
+    private String attribute_name;
 
-    @Column(length = 32)
-    private String category_name;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "attribute")
     @JsonIgnore
-    private List<Products> product;
+    private List<AttributeOptions> attributeOptions;
 
 }

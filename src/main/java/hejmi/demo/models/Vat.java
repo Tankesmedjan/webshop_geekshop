@@ -11,21 +11,18 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Categories {
+public class Vat {
 
     @Id
-    @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 10)
-    private Long parent_category_id;
-
     @Column(length = 32)
-    private String category_name;
+    private String vat_name;
+    private int vat_value;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vat")
     @JsonIgnore
-    private List<Products> product;
+    private List<Products> products = new ArrayList<Products>();
 
 }
