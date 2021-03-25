@@ -35,6 +35,12 @@ public class Products {
 
     private Double product_price;
 
+    @Column(columnDefinition = "boolean default false")
+    private Boolean is_featured;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean has_image;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brandid", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

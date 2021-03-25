@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface ProductsRepo extends CrudRepository<Products, Integer> {
 
-    //@Query("SELECT distinct p from Products p inner join SKU s ON p.id = s.product.id")
+    @Query("SELECT p FROM Products p " +
+            "INNER JOIN Categories c ON c.id = p.category.id"
+    )
     public List<Products> findAll();
 
     public List<Products> findAllByCategoryId(Long catid);
