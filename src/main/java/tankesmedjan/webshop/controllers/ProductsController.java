@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.controllers;
 
+import tankesmedjan.webshop.Service.ProductService;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.repos.ProductsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +13,14 @@ import java.util.List;
 @RequestMapping("/api/products")
 public class ProductsController {
 
+    private ProductService productService;
+
     @Autowired
     private ProductsRepo productsRepo;
 
     @PostMapping
-    public Products addProduct(@RequestBody Products product ) {
-        productsRepo.save(product);
-        return product;
+    public Products addProducts(@RequestBody Products product ) {
+       return productService.addProduct(product);
     }
 
     @GetMapping
