@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.Service.FrontPageService;
 import tankesmedjan.webshop.models.FrontpageBanners;
 import tankesmedjan.webshop.models.FrontpageSlides;
 import tankesmedjan.webshop.repos.FrontpageBannersRepo;
@@ -13,20 +14,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class FrontpageItemsController {
 
     @Autowired
-    FrontpageBannersRepo frontpageBannersRepo;
-
-    @Autowired
-    FrontpageSlidesRepo frontpageSlidesRepo;
+    private FrontPageService frontPageService;
 
     @PostMapping("/slides")
     public FrontpageSlides addSlide(@RequestBody FrontpageSlides slide ) {
-        frontpageSlidesRepo.save(slide);
+        frontPageService.addSlides(slide);
         return slide;
     }
 
     @PostMapping("/banners")
     public FrontpageBanners addBanner(@RequestBody FrontpageBanners banner ) {
-        frontpageBannersRepo.save(banner);
+        frontPageService.addBanners(banner);
         return banner;
     }
 }

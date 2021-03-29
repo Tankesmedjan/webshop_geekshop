@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.Service.SKUService;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.SKURepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class SKUController {
 
     @Autowired
-    private SKURepo skuRepo;
+    private SKUService skuService;
 
     @PostMapping
     public SKU addSKU(@RequestBody SKU sku) {
-        skuRepo.save(sku);
+        skuService.addSKU(sku);
         return sku;
     }
 }

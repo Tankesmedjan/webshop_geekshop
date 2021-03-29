@@ -1,9 +1,12 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.Service.VatService;
 import tankesmedjan.webshop.models.Vat;
 import tankesmedjan.webshop.repos.VatRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -11,11 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class VatController {
 
     @Autowired
-    private VatRepo vatRepo;
+    private VatService vatService;
 
-    @PostMapping
-    public Vat addBrand(@RequestBody Vat vat) {
-        vatRepo.save(vat);
-        return vat;
+    @GetMapping
+    public List<Vat> getVats(){
+        return vatService.getVats();
     }
 }
