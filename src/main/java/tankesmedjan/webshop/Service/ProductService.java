@@ -13,26 +13,25 @@ public class ProductService {
 
     private ProductsRepo productsRepo;
 
-@Autowired
-    public ProductService(ProductsRepo productsRepo){
+    @Autowired
+    public ProductService(ProductsRepo productsRepo) {
         this.productsRepo = productsRepo;
     }
 
-    public Products addProduct(Products products){
-    productsRepo.save(products);
-    return products;
+    public Products addProduct(Products products) {
+        productsRepo.save(products);
+        return products;
     }
 
-    public List<Products> getProducts(){
-    return productsRepo.findAll();
+    public List<Products> getProducts() {
+        return productsRepo.findAll();
     }
 
-    public List<Products> getAllFeaturedProducts(){
-    return productsRepo.findAllByIs_featured();
+    public List<Products> getAllFeaturedProducts() {
+        return productsRepo.findAllByIs_featured();
     }
 
-    public List<Products> getProductById(Long id){
-    return productsRepo.findProductsById(id);
+    public List<Products> getProductById(Long id) {
+        return productsRepo.findProductsById(id);
     }
-
 }
