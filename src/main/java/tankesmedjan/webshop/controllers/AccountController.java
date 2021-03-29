@@ -3,6 +3,7 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.Service.AccountService;
 import tankesmedjan.webshop.models.Account;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.repos.AccountRepo;
@@ -14,16 +15,16 @@ import java.util.List;
 public class AccountController {
 
     @Autowired
-    private AccountRepo accountRepo;
+    private AccountService accountService;
 
     @GetMapping
     public List<Account> getAccounts() {
-        return accountRepo.findAll();
+        return accountService.getAccounts();
     }
 
     @PostMapping
     public Account createAccount(@RequestBody Account account) {
-        accountRepo.save(account);
+        accountService.saveAccount(account);
         return account;
     }
 }
