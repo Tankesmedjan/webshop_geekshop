@@ -13,10 +13,8 @@ import java.util.List;
 @RequestMapping("/api/products")
 public class ProductsController {
 
-    private ProductService productService;
-
     @Autowired
-    private ProductsRepo productsRepo;
+    private ProductService productService;
 
     @PostMapping
     public Products addProducts(@RequestBody Products product ) {
@@ -25,16 +23,16 @@ public class ProductsController {
 
     @GetMapping
     public List<Products> getAllProducts() {
-        return productsRepo.findAll();
+        return productService.getProducts();
     }
 
     @GetMapping("/featured")
     public List<Products> getAllFeaturedProducts() {
-        return productsRepo.findAllByIs_featured();
+        return productService.getAllFeaturedProducts();
     }
 
     @GetMapping("/{id}")
     public List<Products> getProductById(@PathVariable Long id) {
-        return productsRepo.findProductsById(id);
+        return productService.getProductById(id);
     }
 }
