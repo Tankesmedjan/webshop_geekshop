@@ -20,6 +20,8 @@ public class Brands {
     @Column(length = 32)
     private String brand_name;
 
+    private String brand_logo;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "brands")
     @JsonIgnore
     private List<Products> products = new ArrayList<Products>();

@@ -10,6 +10,7 @@ import tankesmedjan.webshop.repos.ProductsRepo;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/categories")
 public class CategoriesController {
 

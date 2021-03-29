@@ -1,16 +1,14 @@
 package tankesmedjan.webshop.controllers;
 
+import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.models.FrontpageBanners;
 import tankesmedjan.webshop.models.FrontpageSlides;
 import tankesmedjan.webshop.repos.FrontpageBannersRepo;
 import tankesmedjan.webshop.repos.FrontpageSlidesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/frontpageitems")
 public class FrontpageItemsController {
 
