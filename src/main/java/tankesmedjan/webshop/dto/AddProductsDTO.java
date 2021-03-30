@@ -15,6 +15,11 @@ public class AddProductsDTO {
    private Long vatid;
    private Long skuid;
    private Long catid;
+
+   private String sku;
+   private int stock;
+   private Long attributeoptionid;
+
    private boolean is_featured = false;
    private boolean has_image = false;
 
