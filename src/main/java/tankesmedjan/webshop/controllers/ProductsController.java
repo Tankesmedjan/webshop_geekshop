@@ -36,8 +36,8 @@ public class ProductsController {
         return productService.getProductById(id);
     }
 
-    @GetMapping("/search/{keyword}")
-    public List<Products> searchProduct(@PathVariable String keyword) {
+    @GetMapping("/search")
+    public List<Products> searchProduct(@Param("keyword") String keyword) {
         List<Products> searchResult = productService.searchProduct(keyword);
         return searchResult;
     }
