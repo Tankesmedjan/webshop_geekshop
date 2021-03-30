@@ -1,8 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
-import tankesmedjan.webshop.Service.ProductService;
+import tankesmedjan.webshop.services.ProductService;
 import tankesmedjan.webshop.models.Products;
-import tankesmedjan.webshop.repos.ProductsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

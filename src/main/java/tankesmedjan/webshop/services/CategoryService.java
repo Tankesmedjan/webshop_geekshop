@@ -1,4 +1,4 @@
-package tankesmedjan.webshop.Service;
+package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +28,10 @@ public class CategoryService {
 
     public List<Categories> getAllCategories() {
         return categoriesRepo.findAll();
+    }
+
+    public List<Categories> getCategory(Long id) {
+        return categoriesRepo.findById(id);
     }
 
     public List<Products> getAllProductsByCategoryId(Long id) {

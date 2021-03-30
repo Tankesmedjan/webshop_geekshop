@@ -2,7 +2,7 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.Service.TwitterService;
+import tankesmedjan.webshop.services.TwitterService;
 import twitter4j.TwitterException;
 
 import java.util.List;

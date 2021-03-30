@@ -1,9 +1,8 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.Service.VatService;
+import tankesmedjan.webshop.services.VatService;
 import tankesmedjan.webshop.models.Vat;
-import tankesmedjan.webshop.repos.VatRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

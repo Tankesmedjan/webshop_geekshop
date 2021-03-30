@@ -1,9 +1,8 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.Service.SKUService;
+import tankesmedjan.webshop.services.SKUService;
 import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.repos.SKURepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController

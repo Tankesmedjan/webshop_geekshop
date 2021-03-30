@@ -1,4 +1,4 @@
-package tankesmedjan.webshop.Service;
+package tankesmedjan.webshop.services;
 
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.models.Vat;

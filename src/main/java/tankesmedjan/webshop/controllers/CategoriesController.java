@@ -1,13 +1,10 @@
 package tankesmedjan.webshop.controllers;
 
-import tankesmedjan.webshop.Service.CategoryService;
-import tankesmedjan.webshop.Service.ProductService;
+import tankesmedjan.webshop.services.CategoryService;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.Products;
-import tankesmedjan.webshop.repos.CategoriesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.repos.ProductsRepo;
 
 import java.util.List;
 
@@ -33,5 +30,9 @@ public class CategoriesController {
     @GetMapping("/{id}")
     public List<Products> getAllProductsInCategory(@PathVariable Long id) {
         return categoryService.getAllProductsByCategoryId(id);
+    }
+    @GetMapping("/category/{id}")
+    public List<Categories> getCategoryInfo(@PathVariable Long id) {
+        return categoryService.getCategory(id);
     }
 }

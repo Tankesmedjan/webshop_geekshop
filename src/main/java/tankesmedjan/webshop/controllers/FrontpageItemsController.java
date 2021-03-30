@@ -1,11 +1,9 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.Service.FrontPageService;
+import tankesmedjan.webshop.services.FrontPageService;
 import tankesmedjan.webshop.models.FrontpageBanners;
 import tankesmedjan.webshop.models.FrontpageSlides;
-import tankesmedjan.webshop.repos.FrontpageBannersRepo;
-import tankesmedjan.webshop.repos.FrontpageSlidesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
