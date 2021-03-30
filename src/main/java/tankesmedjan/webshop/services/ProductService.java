@@ -2,6 +2,7 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tankesmedjan.webshop.dto.AddProductsDTO;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.repos.ProductsRepo;
 
@@ -17,9 +18,10 @@ public class ProductService {
         this.productsRepo = productsRepo;
     }
 
-    public Products addProduct(Products products) {
-        productsRepo.save(products);
-        return products;
+    public AddProductsDTO addProduct(AddProductsDTO addProductsDTO) {
+        Products addNewProduct = new Products(addProductsDTO);
+        productsRepo.save(addNewProduct);
+        return addProductsDTO;
     }
 
     public List<Products> getProducts() {

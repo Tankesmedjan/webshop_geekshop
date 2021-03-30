@@ -1,10 +1,11 @@
 package tankesmedjan.webshop.controllers;
 
-import org.springframework.data.repository.query.Param;
-import tankesmedjan.webshop.services.ProductService;
-import tankesmedjan.webshop.models.Products;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.dto.AddProductsDTO;
+import tankesmedjan.webshop.models.Products;
+import tankesmedjan.webshop.services.ProductService;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class ProductsController {
     private ProductService productService;
 
     @PostMapping
-    public Products addProducts(@RequestBody Products product ) {
+    public AddProductsDTO addProducts(@RequestBody AddProductsDTO product ) {
        return productService.addProduct(product);
     }
 

@@ -2,15 +2,35 @@ package tankesmedjan.webshop.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import tankesmedjan.webshop.dto.AddProductsDTO;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Products {
+
+    public Products(AddProductsDTO products) {
+        this.product_name = products.getProduct_name();
+        this.short_desc = products.getShort_desc();
+        this.full_desc = products.getFull_desc();
+        this.product_price = products.getProduct_price();
+        this.category = new Categories();
+        this.category.setId(products.getCatid());
+        this.vat = new Vat();
+        this.vat.setId(products.getVatid());
+        this.sku = new SKU();
+        this.sku.setId(products.getVatid());
+        this.brands = new Brands();
+        this.brands.setId(products.getBrandid());
+        this.is_featured = products.is_featured();
+        this.has_image = products.isHas_image();
+    }
 
     @Id
     @Column(length = 10)
