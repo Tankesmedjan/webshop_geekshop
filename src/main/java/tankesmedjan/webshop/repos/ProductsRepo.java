@@ -20,5 +20,10 @@ public interface ProductsRepo extends CrudRepository<Products, Integer> {
 
     public List<Products> findAllByBrands_Id(Long id);
     public List<Products> findProductsById(Long id);
+
+    @Query("SELECT p FROM Products p WHERE p.product_name LIKE %?1%"
+            + " OR p.brands.brand_name LIKE %?1%"
+            + " OR p.category.category_name LIKE %?1%")
+    public List<Products> searchProduct(String keyword);
 }
 

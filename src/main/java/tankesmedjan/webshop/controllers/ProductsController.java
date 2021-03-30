@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.controllers;
 
+import org.springframework.data.repository.query.Param;
 import tankesmedjan.webshop.services.ProductService;
 import tankesmedjan.webshop.models.Products;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,11 @@ public class ProductsController {
     @GetMapping("/{id}")
     public List<Products> getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
+    }
+
+    @GetMapping("/search/{keyword}")
+    public List<Products> searchProduct(@PathVariable String keyword) {
+        List<Products> searchResult = productService.searchProduct(keyword);
+        return searchResult;
     }
 }

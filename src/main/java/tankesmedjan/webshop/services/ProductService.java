@@ -33,4 +33,11 @@ public class ProductService {
     public List<Products> getProductById(Long id) {
         return productsRepo.findProductsById(id);
     }
+
+    public List<Products> searchProduct(String keyword) {
+        if (keyword != null) {
+            return productsRepo.searchProduct(keyword);
+        }
+        return productsRepo.findAll();
+    }
 }
