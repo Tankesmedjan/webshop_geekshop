@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AccountRepo extends CrudRepository<Account, Long> {
 
-    public List<Account> findAll();
+    List<Account> findAll();
+    List<Account> findAccountByUsernameAndPassword(String username, String password);
 }

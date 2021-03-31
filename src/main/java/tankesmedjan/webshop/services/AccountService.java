@@ -26,6 +26,11 @@ public class AccountService {
         return accountRepo.findAll();
     }
 
+    public Boolean checkAuth(String username, String password) {
+        if (accountRepo.findAccountByUsernameAndPassword(username,password).isEmpty()) return false;
+        return true;
+    }
+
     public Account saveAccount(Account account) {
         accountRepo.save(account);
         return account;
