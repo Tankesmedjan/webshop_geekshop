@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.controllers;
 
+import tankesmedjan.webshop.dto.AddCategoryDTO;
 import tankesmedjan.webshop.services.CategoryService;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.Products;
@@ -17,9 +18,8 @@ public class CategoriesController {
     private CategoryService categoryService;
 
     @PostMapping
-    public Categories addCategory(@RequestBody Categories category) {
-        categoryService.addCategory(category);
-        return category;
+    public AddCategoryDTO addCategory(@RequestBody AddCategoryDTO category) {
+        return categoryService.addCategory(category);
     }
 
     @GetMapping

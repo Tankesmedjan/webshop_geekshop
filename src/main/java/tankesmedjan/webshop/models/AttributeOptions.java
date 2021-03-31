@@ -3,7 +3,9 @@ package tankesmedjan.webshop.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +13,14 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class AttributeOptions {
+
+    public AttributeOptions(AddAttributeOptionDTO attributeOption) {
+        this.attribute_option_name = attributeOption.getAttribute_option_name();
+        this.attribute = new Attribute();
+        this.attribute.setId(attributeOption.getAttribute());
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,9 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.dto.AddAttributeDTO;
+import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
 import tankesmedjan.webshop.services.AttributeService;
-import tankesmedjan.webshop.models.Attribute;
-import tankesmedjan.webshop.models.AttributeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
@@ -15,14 +15,14 @@ public class AttributeController {
     private AttributeService attributeService;
 
     @PostMapping
-    public Attribute addAttribute(@RequestBody Attribute attribute) {
+    public AddAttributeDTO addAttribute(@RequestBody AddAttributeDTO attribute) {
         attributeService.saveAttribute(attribute);
         return attribute;
     }
     @PostMapping("/option")
-    public AttributeOptions addAttributeOption(@RequestBody AttributeOptions attributeOption) {
-        attributeService.addAttributeOption(attributeOption);
-        return attributeOption;
+    public AddAttributeOptionDTO addAttributeOption(@RequestBody AddAttributeOptionDTO addAttributeOptionDTO) {
+        attributeService.addAttributeOption(addAttributeOptionDTO);
+        return addAttributeOptionDTO;
     }
 
 }

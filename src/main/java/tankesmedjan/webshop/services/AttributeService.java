@@ -2,6 +2,8 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tankesmedjan.webshop.dto.AddAttributeDTO;
+import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
 import tankesmedjan.webshop.models.Attribute;
 import tankesmedjan.webshop.models.AttributeOptions;
 import tankesmedjan.webshop.repos.AttributeOptionsRepo;
@@ -16,13 +18,15 @@ public class AttributeService {
     @Autowired
     private AttributeOptionsRepo attributeOptionsRepo;
 
-    public Attribute saveAttribute(Attribute attribute) {
-        attributeRepo.save(attribute);
-        return attribute;
+    public AddAttributeDTO saveAttribute(AddAttributeDTO addAttributeDTO) {
+        Attribute addNewAttribute = new Attribute(addAttributeDTO);
+        attributeRepo.save(addNewAttribute);
+        return addAttributeDTO;
     }
 
-    public AttributeOptions addAttributeOption(AttributeOptions attributeOptions) {
-        attributeOptionsRepo.save(attributeOptions);
-        return attributeOptions;
+    public AddAttributeOptionDTO addAttributeOption(AddAttributeOptionDTO attributeOptionDTO) {
+        AttributeOptions addNewAttributeOption = new AttributeOptions(attributeOptionDTO);
+        attributeOptionsRepo.save(addNewAttributeOption);
+        return attributeOptionDTO;
     }
 }

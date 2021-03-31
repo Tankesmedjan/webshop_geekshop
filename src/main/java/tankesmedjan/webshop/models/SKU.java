@@ -23,6 +23,7 @@ public class SKU {
         this.attributeOptions.setId(sku.getAttributeoptionid());
     }
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,4 +42,6 @@ public class SKU {
     @JoinColumn(name = "attributeoptionsid", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private AttributeOptions attributeOptions;
+
+
 }

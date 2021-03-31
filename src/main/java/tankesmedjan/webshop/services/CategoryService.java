@@ -2,6 +2,7 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tankesmedjan.webshop.dto.AddCategoryDTO;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.repos.CategoriesRepo;
@@ -21,9 +22,10 @@ public class CategoryService {
         this.productsRepo = productsRepo;
     }
 
-    public Categories addCategory(Categories categories) {
-        categoriesRepo.save(categories);
-        return categories;
+    public AddCategoryDTO addCategory(AddCategoryDTO addCategoryDTO) {
+        Categories addNewCategory = new Categories(addCategoryDTO);
+        categoriesRepo.save(addNewCategory);
+        return addCategoryDTO;
     }
 
     public List<Categories> getAllCategories() {
