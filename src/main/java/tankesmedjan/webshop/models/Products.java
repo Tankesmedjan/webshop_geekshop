@@ -24,8 +24,6 @@ public class Products {
         this.category.setId(products.getCatid());
         this.vat = new Vat();
         this.vat.setId(products.getVatid());
-        this.sku = new SKU();
-        this.sku.setId(products.getVatid());
         this.brands = new Brands();
         this.brands.setId(products.getBrandid());
         this.is_featured = products.is_featured();
