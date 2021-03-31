@@ -27,7 +27,14 @@ public class AccountService {
         Account createNewAccount = new Account(accountCreationDTO);
         accountRepo.save(createNewAccount);
         return accountCreationDTO;
+
+    }
+
+    public Boolean checkAuth(String username, String password) {
+        if (accountRepo.findAccountByUsernameAndPassword(username, password).isEmpty()) return false;
+        return true;
     }
 
 
 }
+
