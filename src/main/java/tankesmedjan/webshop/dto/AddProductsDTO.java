@@ -7,18 +7,20 @@ import lombok.Setter;
 @Setter
 public class AddProductsDTO {
 
+
    private String product_name;
    private String short_desc;
    private String full_desc;
    private double product_price;
    private Long brandid;
    private Long vatid;
-   private Long skuid;
+//   private Long skuid;
    private Long catid;
 
+   private Long product_id;
    private String sku;
    private int stock;
-   private Long attributeoptionid;
+   private Long attributeoptionsid;
 
    private boolean is_featured = false;
    private boolean has_image = false;

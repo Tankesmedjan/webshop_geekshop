@@ -3,6 +3,7 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AddProductsDTO;
+import tankesmedjan.webshop.models.AttributeOptions;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.ProductsRepo;
@@ -33,13 +34,16 @@ public class ProductService {
 
     public AddProductsDTO addProduct(AddProductsDTO addProductsDTO) {
 
+
+        Products addNewProduct = new Products(addProductsDTO);
+        productsRepo.save(addNewProduct);
+        addProductsDTO.setProduct_id(addNewProduct.getId());
+
+        addProductsDTO.setAttributeoptionsid(Long.valueOf(8));
+
         SKU sku = new SKU(addProductsDTO);
         skuService.addSKU(sku);
 
-        addProductsDTO.setSkuid(sku.getId());
-        Products addNewProduct = new Products(addProductsDTO);
-        //addNewProduct.setSku(sku);
-        productsRepo.save(addNewProduct);
         return addProductsDTO;
     }
 
