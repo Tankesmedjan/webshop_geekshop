@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
+import tankesmedjan.webshop.dto.AddProductsDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,6 +23,7 @@ public class AttributeOptions {
         this.attribute.setId(attributeOption.getAttribute());
     }
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,4 +38,6 @@ public class AttributeOptions {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "attributeOptions")
     @JsonIgnore
     private List<SKU> sku;
+
+
 }

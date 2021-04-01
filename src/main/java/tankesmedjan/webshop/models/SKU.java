@@ -16,11 +16,13 @@ import java.util.List;
 @NoArgsConstructor
 public class SKU {
 
-    public  SKU(AddProductsDTO sku) {
+    public SKU(AddProductsDTO sku) {
         this.sku = sku.getSku();
         this.stock = sku.getStock();
         this.attributeOptions = new AttributeOptions();
-        this.attributeOptions.setId(sku.getAttributeoptionid());
+        this.attributeOptions.setId(sku.getAttributeoptionsid());
+        this.products = new Products();
+        this.products.setId(sku.getProduct_id());
     }
 
 

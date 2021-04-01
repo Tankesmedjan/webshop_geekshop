@@ -22,16 +22,22 @@ public class Products {
         this.short_desc = products.getShort_desc();
         this.full_desc = products.getFull_desc();
         this.product_price = products.getProduct_price();
+
+
         this.category = new Categories();
         this.category.setId(products.getCatid());
         this.vat = new Vat();
         this.vat.setId(products.getVatid());
-       // this.sku = new SKU();
-       // this.sku.setId(products.getSkuid());
+
         this.brands = new Brands();
         this.brands.setId(products.getBrandid());
+
         this.is_featured = products.is_featured();
         this.has_image = products.isHas_image();
+
+//        this.id = products.getProduct_id();
+//        this.sku = new SKU();
+//        this.sku.setId(products.getSkuid());
     }
 
     @Id
