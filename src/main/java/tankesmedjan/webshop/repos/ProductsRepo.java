@@ -8,9 +8,7 @@ import java.util.List;
 
 public interface ProductsRepo extends CrudRepository<Products, Integer> {
 
-    @Query("SELECT p FROM Products p " +
-            "INNER JOIN Categories c ON c.id = p.category.id"
-    )
+    @Query("SELECT p FROM Products p INNER JOIN SKU s ON p.id = s.products.id")
     public List<Products> findAll();
 
     @Query("SELECT p FROM Products p WHERE p.is_featured = true")
@@ -21,7 +19,9 @@ public interface ProductsRepo extends CrudRepository<Products, Integer> {
     public List<Products> findAllByBrands_Id(Long id);
     public List<Products> findProductsById(Long id);
 
-    @Query("SELECT p FROM Products p WHERE p.product_name LIKE %?1%"
+    @Query("SELECT p FROM Products p " +
+            "INNER JOIN SKU s ON s.products.id = p.id " // updated for new SKU relation in db, returns all available product options
+            + "WHERE p.product_name LIKE %?1%"
             + " OR p.brands.brand_name LIKE %?1%"
             + " OR p.category.category_name LIKE %?1%")
     public List<Products> searchProduct(String keyword);

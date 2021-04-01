@@ -38,7 +38,7 @@ public class ProductService {
 
         addProductsDTO.setSkuid(sku.getId());
         Products addNewProduct = new Products(addProductsDTO);
-        addNewProduct.setSku(sku);
+        //addNewProduct.setSku(sku);
         productsRepo.save(addNewProduct);
         return addProductsDTO;
     }

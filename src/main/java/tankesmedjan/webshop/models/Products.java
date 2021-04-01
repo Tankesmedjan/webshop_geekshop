@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.Type;
 import tankesmedjan.webshop.dto.AddProductsDTO;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,8 +26,8 @@ public class Products {
         this.category.setId(products.getCatid());
         this.vat = new Vat();
         this.vat.setId(products.getVatid());
-        this.sku = new SKU();
-        this.sku.setId(products.getSkuid());
+       // this.sku = new SKU();
+       // this.sku.setId(products.getSkuid());
         this.brands = new Brands();
         this.brands.setId(products.getBrandid());
         this.is_featured = products.is_featured();
@@ -69,8 +71,7 @@ public class Products {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Vat vat;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "skuid")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private SKU sku;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    @JsonIgnore
+    private List<SKU> skuList;
 }

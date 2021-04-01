@@ -34,9 +34,10 @@ public class SKU {
     private int stock;
     private Double price_diff;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sku")
-    @JsonIgnore
-    private List<Products> product;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Products products;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "attributeoptionsid", nullable = true)
