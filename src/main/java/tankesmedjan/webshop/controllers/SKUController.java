@@ -35,4 +35,9 @@ public class SKUController {
     public List<SKU> getSKUById(@PathVariable String sku) {
         return skuService.getSKUProduct(sku);
     }
+
+    @GetMapping("/id/{id}")
+    public List<SKU> getSKUBySkuId(@PathVariable Long id) {
+        return skuService.getSKUById(id);
+    }
 }

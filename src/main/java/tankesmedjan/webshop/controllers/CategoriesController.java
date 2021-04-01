@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import tankesmedjan.webshop.dto.AddCategoryDTO;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.CategoryService;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.Products;
@@ -28,7 +29,7 @@ public class CategoriesController {
     }
 
     @GetMapping("/{id}")
-    public List<Products> getAllProductsInCategory(@PathVariable Long id) {
+    public List<SKU> getAllProductsInCategory(@PathVariable Long id) {
         return categoryService.getAllProductsByCategoryId(id);
     }
     @GetMapping("/category/{id}")

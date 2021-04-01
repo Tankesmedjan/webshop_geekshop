@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AddCategoryDTO;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.Products;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.CategoriesRepo;
 import tankesmedjan.webshop.repos.ProductsRepo;
 
@@ -36,7 +37,7 @@ public class CategoryService {
         return categoriesRepo.findById(id);
     }
 
-    public List<Products> getAllProductsByCategoryId(Long id) {
+    public List<SKU> getAllProductsByCategoryId(Long id) {
         return productsRepo.findAllByCategoryId(id);
     }
 

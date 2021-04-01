@@ -2,6 +2,7 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.models.Categories;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.BrandsService;
 import tankesmedjan.webshop.models.Brands;
 import tankesmedjan.webshop.models.Products;
@@ -29,7 +30,7 @@ public class BrandsController {
     }
 
     @GetMapping("/{id}")
-    public List<Products> getAllProductsFromBrand(@PathVariable Long id) {
+    public List<SKU> getAllProductsFromBrand(@PathVariable Long id) {
         return brandsService.getProductsByBrandId(id);
     }
     @GetMapping("/brand/{id}")

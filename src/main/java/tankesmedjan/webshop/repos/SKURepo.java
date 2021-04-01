@@ -12,4 +12,5 @@ public interface SKURepo extends CrudRepository<SKU, Integer> {
     List<SKU> findAll();
     List<SKU> findSKUSByProductsId(Long id);
     List<SKU> findBySku(String sku);
+    List<SKU> findById(Long id);
 }

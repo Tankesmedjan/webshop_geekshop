@@ -27,4 +27,6 @@ public class SKUService {
     public List<SKU> getSKUsByProductId(Long id) { return skuRepo.findSKUSByProductsId(id); }
 
     public List<SKU> getSKUProduct(String sku) { return skuRepo.findBySku(sku); }
+
+    public List<SKU> getSKUById(Long id) { return skuRepo.findById(id); }
 }

@@ -47,11 +47,11 @@ public class ProductService {
         return productsRepo.findAll();
     }
 
-    public List<Products> getAllFeaturedProducts() {
-        return productsRepo.findAllByIs_featured();
+    public List<SKU> getAllFeaturedProducts() {
+        return productsRepo.findAllIsfeatured();
     }
 
-    public List<Products> getProductById(Long id) {
+    public List<SKU> getProductById(Long id) {
         return productsRepo.findProductsById(id);
     }
 

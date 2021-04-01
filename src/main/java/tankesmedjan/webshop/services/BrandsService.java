@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.models.Brands;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.Products;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.BrandsRepo;
 import tankesmedjan.webshop.repos.ProductsRepo;
 
@@ -32,7 +33,7 @@ public class BrandsService {
         return brandsRepo.findById(id);
     }
 
-    public List<Products> getProductsByBrandId(Long id) {
+    public List<SKU> getProductsByBrandId(Long id) {
         return productsRepo.findAllByBrands_Id(id);
     }
 

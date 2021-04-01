@@ -5,6 +5,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.AddProductsDTO;
 import tankesmedjan.webshop.models.Products;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.ProductService;
 
 import java.util.List;
@@ -29,12 +30,12 @@ public class ProductsController {
     }
 
     @GetMapping("/featured")
-    public List<Products> getAllFeaturedProducts() {
+    public List<SKU> getAllFeaturedProducts() {
         return productService.getAllFeaturedProducts();
     }
 
     @GetMapping("/{id}")
-    public List<Products> getProductById(@PathVariable Long id) {
+    public List<SKU> getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
     }
 
