@@ -9,6 +9,8 @@ import tankesmedjan.webshop.models.AttributeOptions;
 import tankesmedjan.webshop.repos.AttributeOptionsRepo;
 import tankesmedjan.webshop.repos.AttributeRepo;
 
+import java.util.List;
+
 @Service
 public class AttributeService {
 
@@ -28,5 +30,9 @@ public class AttributeService {
         AttributeOptions addNewAttributeOption = new AttributeOptions(attributeOptionDTO);
         attributeOptionsRepo.save(addNewAttributeOption);
         return attributeOptionDTO;
+    }
+
+    public List<AttributeOptions> getAttributesListForProductId(Long id) {
+        return attributeOptionsRepo.findAllAttributesForProduct(id);
     }
 }
