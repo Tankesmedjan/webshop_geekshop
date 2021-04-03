@@ -6,6 +6,7 @@ import tankesmedjan.webshop.dto.AddAttributeDTO;
 import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
 import tankesmedjan.webshop.models.Attribute;
 import tankesmedjan.webshop.models.AttributeOptions;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.AttributeOptionsRepo;
 import tankesmedjan.webshop.repos.AttributeRepo;
 
@@ -32,7 +33,7 @@ public class AttributeService {
         return attributeOptionDTO;
     }
 
-    public List<AttributeOptions> getAttributesListForProductId(Long id) {
+    public List<SKU> getAttributesListForProductId(Long id) {
         return attributeOptionsRepo.findAllAttributesForProduct(id);
     }
 }

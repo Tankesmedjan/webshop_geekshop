@@ -6,6 +6,7 @@ import tankesmedjan.webshop.dto.AddAttributeDTO;
 import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
 import tankesmedjan.webshop.models.Attribute;
 import tankesmedjan.webshop.models.AttributeOptions;
+import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.AttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,7 +32,7 @@ public class AttributeController {
     }
 
     @GetMapping("/product/{id}")
-    public List<AttributeOptions> getAttributesListForProductId(@PathVariable Long id) {
+    public List<SKU> getAttributesListForProductId(@PathVariable Long id) {
         return attributeService.getAttributesListForProductId(id);
     }
 
