@@ -35,4 +35,10 @@ public class AccountController {
         String password = account.getPassword();
        return accountService.checkAuth(username, password);
     }
+    @PostMapping("/auth/userdata")
+    public List<Account> getUserData(@RequestBody Account account) {
+        String username = account.getUsername();
+        String password = account.getPassword();
+       return accountService.getUserData(username, password);
+    }
 }

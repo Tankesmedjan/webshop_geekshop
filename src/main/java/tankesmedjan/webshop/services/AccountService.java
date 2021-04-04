@@ -35,6 +35,10 @@ public class AccountService {
         return true;
     }
 
+    public List<Account> getUserData(String username, String password) {
+        return accountRepo.findAccountByUsernameAndPassword(username, password);
+    }
+
 
 }
 
