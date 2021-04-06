@@ -3,7 +3,6 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AddProductsDTO;
-import tankesmedjan.webshop.models.AttributeOptions;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.ProductsRepo;

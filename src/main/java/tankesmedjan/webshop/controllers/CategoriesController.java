@@ -4,7 +4,6 @@ import tankesmedjan.webshop.dto.AddCategoryDTO;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.CategoryService;
 import tankesmedjan.webshop.models.Categories;
-import tankesmedjan.webshop.models.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

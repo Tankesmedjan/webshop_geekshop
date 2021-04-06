@@ -1,11 +1,8 @@
 package tankesmedjan.webshop.controllers;
 
-import org.hibernate.annotations.GeneratorType;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.AddAttributeDTO;
 import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
-import tankesmedjan.webshop.models.Attribute;
-import tankesmedjan.webshop.models.AttributeOptions;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.AttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
