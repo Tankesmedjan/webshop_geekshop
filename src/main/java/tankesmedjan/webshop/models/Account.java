@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import tankesmedjan.webshop.dto.AccountCreationDTO;
+import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 @NoArgsConstructor
 public class Account {
 
-    public Account(AccountCreationDTO accounts) {
+    public Account(AccountAndCostumerCreationDTO accounts) {
 
         String sha256hex = Hashing.sha256()
                 .hashString(accounts.getPassword(), StandardCharsets.UTF_8)
@@ -42,8 +42,8 @@ public class Account {
     private String password;
     private String role;
 
-    @OneToOne
-    @JsonIgnore
-    private Customers customer;
+//    @OneToOne
+//    @JsonIgnore
+//    private Customers customer;
 
 }

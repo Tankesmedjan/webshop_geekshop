@@ -2,9 +2,11 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tankesmedjan.webshop.dto.AccountCreationDTO;
+import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.models.Account;
+import tankesmedjan.webshop.models.Customers;
 import tankesmedjan.webshop.repos.AccountRepo;
+import tankesmedjan.webshop.repos.CustomersRepo;
 
 import java.util.List;
 
@@ -15,6 +17,9 @@ public class AccountService {
     private AccountRepo accountRepo;
 
     @Autowired
+    private CustomersService customersService;
+
+    @Autowired
     public AccountService(AccountRepo accountRepo) {
         this.accountRepo = accountRepo;
     }
@@ -23,10 +28,15 @@ public class AccountService {
         return accountRepo.findAll();
     }
 
-    public AccountCreationDTO saveAccount(AccountCreationDTO accountCreationDTO) {
-        Account createNewAccount = new Account(accountCreationDTO);
+    public AccountAndCostumerCreationDTO saveAccount(AccountAndCostumerCreationDTO accountAndCostumerCreationDTO) {
+        Account createNewAccount = new Account(accountAndCostumerCreationDTO);
         accountRepo.save(createNewAccount);
-        return accountCreationDTO;
+        accountAndCostumerCreationDTO.setAccount_id(createNewAccount.getId());
+
+        Customers customers = new Customers(accountAndCostumerCreationDTO);
+        customersService.addCustomers(customers);
+
+        return accountAndCostumerCreationDTO;
 
     }
 

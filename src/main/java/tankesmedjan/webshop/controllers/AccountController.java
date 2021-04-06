@@ -3,7 +3,7 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.dto.AccountCreationDTO;
+import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.services.AccountService;
 import tankesmedjan.webshop.models.Account;
 
@@ -23,7 +23,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public AccountCreationDTO createAccount(@RequestBody AccountCreationDTO account) {
+    public AccountAndCostumerCreationDTO createAccount(@RequestBody AccountAndCostumerCreationDTO account) {
         accountService.saveAccount(account);
         return account;
     }
