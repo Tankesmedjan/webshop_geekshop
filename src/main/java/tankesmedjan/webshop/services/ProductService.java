@@ -6,6 +6,7 @@ import tankesmedjan.webshop.dto.AddProductsDTO;
 import tankesmedjan.webshop.models.Products;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.ProductsRepo;
+import tankesmedjan.webshop.repos.SKURepo;
 
 import java.util.List;
 
@@ -58,10 +59,10 @@ public class ProductService {
         return productsRepo.findProductsById(id);
     }
 
-    public List<Products> searchProduct(String keyword) {
+    public List<SKU> searchProduct(String keyword) {
         if (keyword != null) {
             return productsRepo.searchProduct(keyword);
         }
-        return productsRepo.findAll();
+        return skuService.getAllSku();
     }
 }

@@ -37,11 +37,11 @@ public interface ProductsRepo extends CrudRepository<Products, Integer> {
             "group by p.id")
     List<SKU> findProductsById(Long id);
 
-    @Query("SELECT p FROM Products p " +
-            "INNER JOIN SKU s ON s.products.id = p.id " // updated for new SKU relation in db, returns all available product options
+    @Query("SELECT s FROM SKU s " +
+            "INNER JOIN Products p ON s.products.id = p.id " // updated for new SKU relation in db, returns all available product options
             + "WHERE p.product_name LIKE %?1%"
             + " OR p.brands.brand_name LIKE %?1%"
             + " OR p.category.category_name LIKE %?1%")
-    List<Products> searchProduct(String keyword);
+    List<SKU> searchProduct(String keyword);
 }
 

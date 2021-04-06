@@ -40,8 +40,8 @@ public class ProductsController {
     }
 
     @GetMapping("/search")
-    public List<Products> searchProduct(@Param("keyword") String keyword) {
-        List<Products> searchResult = productService.searchProduct(keyword);
+    public List<SKU> searchProduct(@Param("keyword") String keyword) {
+        List<SKU> searchResult = productService.searchProduct(keyword);
         return searchResult;
     }
 }
