@@ -27,7 +27,8 @@ public interface ProductsRepo extends CrudRepository<Products, Integer> {
 
     @Query("SELECT s, p.id FROM SKU s " +
             "inner join Products p on p.id = s.products.id " +
-            "where p.brands.id = ?1 and s.products.id = p.id")
+            "where p.brands.id = ?1 " +
+            "GROUP BY p.id")
     List<SKU> findAllByBrands_Id(Long id);
 
     @Query("SELECT s, p FROM SKU s " +

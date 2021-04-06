@@ -2,7 +2,6 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.BrandsDTO;
-import tankesmedjan.webshop.dto.SkuDTO;
 import tankesmedjan.webshop.models.Categories;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.BrandsService;
@@ -26,12 +25,12 @@ public class BrandsController {
     }
 
     @PostMapping
-    public BrandsDTO addBrand(@RequestBody BrandsDTO brand) {
+    public Brands addBrand(@RequestBody Brands brand) {
         return brandsService.saveBrand(brand);
     }
 
     @GetMapping("/{id}")
-    public List<SkuDTO> getAllProductsFromBrand(@PathVariable Long id) {
+    public List<SKU> getAllProductsFromBrand(@PathVariable Long id) {
         return brandsService.getProductsByBrandId(id);
     }
 
