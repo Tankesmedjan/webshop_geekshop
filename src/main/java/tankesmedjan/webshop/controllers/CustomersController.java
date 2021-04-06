@@ -3,9 +3,7 @@ package tankesmedjan.webshop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.models.Customers;
-import tankesmedjan.webshop.models.Vat;
 import tankesmedjan.webshop.services.CustomersService;
-import tankesmedjan.webshop.services.VatService;
 
 import java.util.List;
 
