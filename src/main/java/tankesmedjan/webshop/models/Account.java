@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.hash.Hashing;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import tankesmedjan.webshop.dto.AccountCreationDTO;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.nio.charset.StandardCharsets;
 
 
@@ -39,5 +41,9 @@ public class Account {
     private String username;
     private String password;
     private String role;
+
+    @OneToOne
+    @JsonIgnore
+    private Customers customer;
 
 }
