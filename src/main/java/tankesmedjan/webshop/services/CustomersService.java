@@ -18,4 +18,6 @@ public class CustomersService {
     public List<Customers> getCustomerAccount(String id) {
         return customersRepo.findByAccount_Id(id);
     }
+
+    public Customers addCustomers(Customers customers) { return customersRepo.save(customers); }
 }

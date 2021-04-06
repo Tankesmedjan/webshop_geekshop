@@ -35,9 +35,7 @@ public class Products {
         this.is_featured = products.is_featured();
         this.has_image = products.isHas_image();
 
-//        this.id = products.getProduct_id();
-//        this.sku = new SKU();
-//        this.sku.setId(products.getSkuid());
+
     }
 
     @Id
