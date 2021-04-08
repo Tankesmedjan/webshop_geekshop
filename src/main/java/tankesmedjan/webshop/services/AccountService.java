@@ -6,9 +6,9 @@ import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.models.Account;
 import tankesmedjan.webshop.models.Customers;
 import tankesmedjan.webshop.repos.AccountRepo;
-import tankesmedjan.webshop.repos.CustomersRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -38,6 +38,10 @@ public class AccountService {
 
         return accountAndCostumerCreationDTO;
 
+    }
+
+    public Optional<Account> getAccount(String id) {
+        return accountRepo.findById(id);
     }
 
     public Boolean checkAuth(String username, String password) {

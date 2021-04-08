@@ -8,6 +8,7 @@ import tankesmedjan.webshop.services.AccountService;
 import tankesmedjan.webshop.models.Account;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -34,6 +35,12 @@ public class AccountController {
         String password = account.getPassword();
        return accountService.checkAuth(username, password);
     }
+
+    @GetMapping("/auth/userdata/{id}")
+    public Optional<Account> getUserData(@PathVariable String id) {
+        return accountService.getAccount(id);
+    }
+
     @PostMapping("/auth/userdata")
     public List<Account> getUserData(@RequestBody Account account) {
         String username = account.getUsername();
