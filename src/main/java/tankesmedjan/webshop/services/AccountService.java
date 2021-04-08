@@ -40,8 +40,8 @@ public class AccountService {
 
     }
 
-    public Optional<Account> getAccount(String id) {
-        return accountRepo.findById(id);
+    public List<Account> getAccount(String id) {
+        return accountRepo.getAccountById(id);
     }
 
     public Boolean checkAuth(String username, String password) {

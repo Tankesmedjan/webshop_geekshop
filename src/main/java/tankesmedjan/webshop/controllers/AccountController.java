@@ -37,7 +37,7 @@ public class AccountController {
     }
 
     @GetMapping("/auth/userdata/{id}")
-    public Optional<Account> getUserData(@PathVariable String id) {
+    public List<Account> getUserData(@PathVariable String id) {
         return accountService.getAccount(id);
     }
 

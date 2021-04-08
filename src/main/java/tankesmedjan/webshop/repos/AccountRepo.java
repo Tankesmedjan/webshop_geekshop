@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.repos;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import tankesmedjan.webshop.models.Account;
 
@@ -9,5 +10,6 @@ public interface AccountRepo extends CrudRepository<Account, String> {
 
     List<Account> findAll();
     List<Account> findAccountByUsernameAndPassword(String username, String password);
+    List<Account> getAccountById(String id);
 
 }
