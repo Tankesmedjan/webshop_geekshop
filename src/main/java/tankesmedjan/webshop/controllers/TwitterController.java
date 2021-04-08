@@ -8,10 +8,10 @@ import twitter4j.TwitterException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/twitter")
+@RequestMapping(path = "/twitter")
 public class TwitterController {
 
-    private final TwitterService twitterService;
+    private TwitterService twitterService;
 
     @Autowired
     public TwitterController(TwitterService twitterService){
