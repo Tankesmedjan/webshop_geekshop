@@ -8,7 +8,7 @@ import tankesmedjan.webshop.models.SKU;
 
 import java.util.List;
 
-public interface ProductsRepo extends CrudRepository<Products, Integer> {
+public interface ProductsRepo extends CrudRepository<Products, Long> {
 
     @Query("SELECT p FROM Products p INNER JOIN SKU s ON p.id = s.products.id")
     List<Products> findAll();
@@ -44,5 +44,8 @@ public interface ProductsRepo extends CrudRepository<Products, Integer> {
             + " OR p.category.category_name LIKE %?1%"
             + " GROUP BY p.id")
     List<SKU> searchProduct(String keyword);
+
+    @Query("SELECT p FROM Products p WHERE p.id =?1")
+    Products findSingleProductById(Long id);
 }
 

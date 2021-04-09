@@ -37,9 +37,14 @@ public class ProductService {
 
         Products addNewProduct = new Products(addProductsDTO);
         productsRepo.save(addNewProduct);
-        addProductsDTO.setProduct_id(addNewProduct.getId());
+        if (addProductsDTO.getProduct_id() == null) {
+            addProductsDTO.setProduct_id(addNewProduct.getId());
+        } else addProductsDTO.setProduct_id(addProductsDTO.getProduct_id());
 
-        addProductsDTO.setAttributeoptionsid(Long.valueOf(8));
+        if (addProductsDTO.getAttributeoptionsid() == null) {
+            addProductsDTO.setAttributeoptionsid(Long.valueOf(0));
+        }
+        else addProductsDTO.setAttributeoptionsid(addProductsDTO.getAttributeoptionsid());
 
         SKU sku = new SKU(addProductsDTO);
         skuService.addSKU(sku);
@@ -64,5 +69,12 @@ public class ProductService {
             return productsRepo.searchProduct(keyword);
         }
         return skuService.getAllSku();
+    }
+
+    public Products deleteProduct(Long id) {
+        Products product = productsRepo.findSingleProductById(id);
+        List<SKU> SKUsToDelete = skuService.getSKUsByProductId(id);
+        productsRepo.delete(product);
+        return product;
     }
 }

@@ -47,4 +47,9 @@ public class ProductsController {
         List<SKU> searchResult = productService.searchProduct(keyword);
         return searchResult;
     }
+
+    @DeleteMapping("/delete")
+    public Products deleteProducts(@RequestParam Long id) {
+        return productService.deleteProduct(id);
+    }
 }

@@ -7,10 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface SKURepo extends CrudRepository<SKU, Integer> {
+public interface SKURepo extends CrudRepository<SKU, Long> {
 
     List<SKU> findAll();
     List<SKU> findSKUSByProductsId(Long id);
     List<SKU> findBySku(String sku);
-    List<SKU> findById(Long id);
+    List<SKU> findSKUById(Long id);
 }
