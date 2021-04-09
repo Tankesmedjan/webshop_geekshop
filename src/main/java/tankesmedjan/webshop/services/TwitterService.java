@@ -3,6 +3,7 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tankesmedjan.webshop.dto.HashtagDTO;
 import tankesmedjan.webshop.repos.TwitterRepository;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
@@ -23,8 +24,8 @@ public class TwitterService {
 
     Logger logger = Logger.getLogger(TwitterRepository.class);
 
-    public List<String> getHashtags() throws TwitterException {
-        List<String> hashtags = new ArrayList<>();
+    public List<HashtagDTO> getHashtags() throws TwitterException {
+        List<HashtagDTO> hashtags = new ArrayList<>();
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
         TwitterFactory tf = new TwitterFactory(cb.build());
@@ -33,16 +34,18 @@ public class TwitterService {
         int count = 0;
         for (Trend trend : trends.getTrends()) {
             if (count < 10 && trend.getName().contains("#")) {
-                hashtags.add(trend.getName());
+                HashtagDTO hashtagDTO = new HashtagDTO((count + 1), trend.getName());
+                hashtags.add(hashtagDTO);
                 count++;
             }
         }
         return hashtags;
     }
 
-    public void postToTwitter(String message) throws TwitterException {
+    public String postToTwitter(String message) throws TwitterException {
         Twitter twitter = TwitterFactory.getSingleton();
         Status status = twitter.updateStatus(message);
         logger.debug("Successfully updated status to " + status.getText());
+        return message;
     }
 }
