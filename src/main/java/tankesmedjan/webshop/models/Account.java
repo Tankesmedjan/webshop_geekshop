@@ -9,11 +9,10 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -45,5 +44,9 @@ public class Account {
 //    @OneToOne
 //    @JsonIgnore
 //    private Customers customer;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+    @JsonIgnore
+    private List<ProductRating> productRatings = new ArrayList<ProductRating>();
 
 }

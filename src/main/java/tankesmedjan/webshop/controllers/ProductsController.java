@@ -29,6 +29,9 @@ public class ProductsController {
         return productService.getProducts();
     }
 
+//    @PutMapping
+//    public
+
     @GetMapping("/featured")
     public List<SKU> getAllFeaturedProducts() {
         return productService.getAllFeaturedProducts();
