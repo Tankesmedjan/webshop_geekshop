@@ -78,4 +78,8 @@ public class Products {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
     @JsonIgnore
     private List<SKU> skuList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    @JsonIgnore
+    private List<ProductRating> productRatingList;
 }
