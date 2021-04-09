@@ -1,6 +1,5 @@
 package tankesmedjan.webshop.repos;
 
-import org.springframework.data.repository.query.Param;
 import tankesmedjan.webshop.models.Products;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -10,7 +9,7 @@ import java.util.List;
 
 public interface ProductsRepo extends CrudRepository<Products, Integer> {
 
-    @Query("SELECT p FROM Products p INNER JOIN SKU s ON p.id = s.products.id")
+    @Query("SELECT p FROM Products p INNER JOIN SKU s ON p.id = s.products.id GROUP BY p.id")
     List<Products> findAll();
 
     @Query("SELECT s, p.id FROM SKU s " +
