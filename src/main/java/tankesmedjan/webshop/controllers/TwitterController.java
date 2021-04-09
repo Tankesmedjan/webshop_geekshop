@@ -10,6 +10,7 @@ import twitter4j.TwitterException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "/api/twitter")
 public class TwitterController {
 
