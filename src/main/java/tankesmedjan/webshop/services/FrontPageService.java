@@ -2,29 +2,29 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tankesmedjan.webshop.models.FrontpageBanners;
-import tankesmedjan.webshop.models.FrontpageSlides;
-import tankesmedjan.webshop.repos.FrontpageBannersRepo;
-import tankesmedjan.webshop.repos.FrontpageSlidesRepo;
+import tankesmedjan.webshop.models.FrontpageBanner;
+import tankesmedjan.webshop.models.FrontpageSlide;
+import tankesmedjan.webshop.repos.FrontpageBannerRepo;
+import tankesmedjan.webshop.repos.FrontpageSlideRepo;
 
 @Service
 public class FrontPageService {
 
-    private final FrontpageSlidesRepo frontpageSlidesRepo;
-    private final FrontpageBannersRepo frontpageBannersRepo;
+    private final FrontpageSlideRepo frontpageSlideRepo;
+    private final FrontpageBannerRepo frontpageBannerRepo;
 
     @Autowired
-    FrontPageService(FrontpageSlidesRepo frontpageSlidesRepo, FrontpageBannersRepo frontpageBannersRepo){
-        this.frontpageSlidesRepo = frontpageSlidesRepo;
-        this.frontpageBannersRepo = frontpageBannersRepo;
+    FrontPageService(FrontpageSlideRepo frontpageSlideRepo, FrontpageBannerRepo frontpageBannerRepo){
+        this.frontpageSlideRepo = frontpageSlideRepo;
+        this.frontpageBannerRepo = frontpageBannerRepo;
     }
 
-    public FrontpageSlides addSlides(FrontpageSlides frontpageSlides){
-        return frontpageSlidesRepo.save(frontpageSlides);
+    public FrontpageSlide addSlides(FrontpageSlide frontpageSlide){
+        return frontpageSlideRepo.save(frontpageSlide);
     }
 
-    public FrontpageBanners addBanners(FrontpageBanners frontpageBanners){
-        return frontpageBannersRepo.save(frontpageBanners);
+    public FrontpageBanner addBanners(FrontpageBanner frontpageBanner){
+        return frontpageBannerRepo.save(frontpageBanner);
     }
 
 }

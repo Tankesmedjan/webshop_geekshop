@@ -1,14 +1,12 @@
 package tankesmedjan.webshop.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tankesmedjan.webshop.dto.AddProductsDTO;
+import tankesmedjan.webshop.dto.AddProductDTO;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -16,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 public class SKU {
 
-    public SKU(AddProductsDTO sku) {
+    public SKU(AddProductDTO sku) {
         this.sku = sku.getSku();
         this.stock = sku.getStock();
-        this.attributeOptions = new AttributeOptions();
-        this.attributeOptions.setId(sku.getAttributeoptionsid());
-        this.products = new Products();
-        this.products.setId(sku.getProduct_id());
+        this.attributeOption = new AttributeOption();
+        this.attributeOption.setId(sku.getAttributeOptionId());
+        this.product = new Product();
+        this.product.setId(sku.getProductId());
     }
 
 
@@ -34,17 +32,17 @@ public class SKU {
     private String sku;
 
     private int stock;
-    private Double price_diff;
+    private Double priceDiff;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "productId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Products products;
+    private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "attributeoptionsid", nullable = true)
+    @JoinColumn(name = "attributeOptionId", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private AttributeOptions attributeOptions;
+    private AttributeOption attributeOption;
 
 
 }

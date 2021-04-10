@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.models.Account;
-import tankesmedjan.webshop.models.Customers;
+import tankesmedjan.webshop.models.Customer;
 import tankesmedjan.webshop.repos.AccountRepo;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -17,7 +16,7 @@ public class AccountService {
     private AccountRepo accountRepo;
 
     @Autowired
-    private CustomersService customersService;
+    private CustomerService customerService;
 
     @Autowired
     public AccountService(AccountRepo accountRepo) {
@@ -33,8 +32,8 @@ public class AccountService {
         accountRepo.save(createNewAccount);
         accountAndCostumerCreationDTO.setAccount_id(createNewAccount.getId());
 
-        Customers customers = new Customers(accountAndCostumerCreationDTO);
-        customersService.addCustomers(customers);
+        Customer customer = new Customer(accountAndCostumerCreationDTO);
+        customerService.addCustomer(customer);
 
         return accountAndCostumerCreationDTO;
 

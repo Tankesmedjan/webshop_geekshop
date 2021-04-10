@@ -13,11 +13,11 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Categories {
+public class Category {
 
-    public Categories(AddCategoryDTO category) {
-        this.category_name = category.getCategory_name();
-        this.parent_category_id = category.getParent_category_id();
+    public Category(AddCategoryDTO category) {
+        this.categoryName = category.getCategoryName();
+        this.parentCategoryId = category.getParentCategoryId();
     }
 
     @Id
@@ -26,13 +26,13 @@ public class Categories {
     private Long id;
 
     @Column(length = 10)
-    private Long parent_category_id;
+    private Long parentCategoryId;
 
     @Column(length = 32)
-    private String category_name;
+    private String categoryName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     @JsonIgnore
-    private List<Products> product;
+    private List<Product> product;
 
 }

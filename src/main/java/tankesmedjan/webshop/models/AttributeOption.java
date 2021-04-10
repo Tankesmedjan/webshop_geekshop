@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
-import tankesmedjan.webshop.dto.AddProductsDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,10 +14,10 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AttributeOptions {
+public class AttributeOption {
 
-    public AttributeOptions(AddAttributeOptionDTO attributeOption) {
-        this.attribute_option_name = attributeOption.getAttribute_option_name();
+    public AttributeOption(AddAttributeOptionDTO attributeOption) {
+        this.attributeOptionName = attributeOption.getAttributeOptionName();
         this.attribute = new Attribute();
         this.attribute.setId(attributeOption.getAttribute());
     }
@@ -28,14 +27,14 @@ public class AttributeOptions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String attribute_option_name;
+    private String attributeOptionName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "attribute", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Attribute attribute;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "attributeOptions")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "attributeOption")
     @JsonIgnore
     private List<SKU> sku;
 

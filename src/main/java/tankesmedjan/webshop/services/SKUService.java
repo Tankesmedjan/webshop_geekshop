@@ -23,7 +23,7 @@ public class SKUService {
 
     public List<SKU> getAllSku() { return skuRepo.findAll();}
 
-    public List<SKU> getSKUsByProductId(Long id) { return skuRepo.findSKUSByProductsId(id); }
+    public List<SKU> getSKUsByProductId(Long id) { return skuRepo.findSKUSByProductId(id); }
 
     public List<SKU> getSKUProduct(String sku) { return skuRepo.findBySku(sku); }
 

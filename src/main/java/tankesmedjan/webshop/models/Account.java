@@ -21,15 +21,15 @@ import java.util.List;
 @NoArgsConstructor
 public class Account {
 
-    public Account(AccountAndCostumerCreationDTO accounts) {
+    public Account(AccountAndCostumerCreationDTO account) {
 
         String sha256hex = Hashing.sha256()
-                .hashString(accounts.getPassword(), StandardCharsets.UTF_8)
+                .hashString(account.getPassword(), StandardCharsets.UTF_8)
                 .toString();
 
-        this.username = accounts.getUsername();
+        this.username = account.getUsername();
         this.password = sha256hex;
-        this.role = accounts.getRole();
+        this.role = account.getRole();
     }
 
     @Id
@@ -41,12 +41,9 @@ public class Account {
     private String password;
     private String role;
 
-//    @OneToOne
-//    @JsonIgnore
-//    private Customers customer;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     @JsonIgnore
-    private List<ProductRating> productRatings = new ArrayList<ProductRating>();
+    private List<ProductRating> productRating = new ArrayList<ProductRating>();
 
 }

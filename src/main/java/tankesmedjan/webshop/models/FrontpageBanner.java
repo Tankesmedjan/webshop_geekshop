@@ -11,14 +11,14 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class FrontpageBanners {
+public class FrontpageBanner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String banner_title;
-    private String target_url;
-    private String image_url;
+    private String bannerTitle;
+    private String targetUrl;
+    private String imageUrl;
 
 }

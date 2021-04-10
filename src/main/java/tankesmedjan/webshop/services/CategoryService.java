@@ -3,42 +3,41 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AddCategoryDTO;
-import tankesmedjan.webshop.models.Categories;
-import tankesmedjan.webshop.models.Products;
+import tankesmedjan.webshop.models.Category;
 import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.repos.CategoriesRepo;
-import tankesmedjan.webshop.repos.ProductsRepo;
+import tankesmedjan.webshop.repos.CategoryRepo;
+import tankesmedjan.webshop.repos.ProductRepo;
 
 import java.util.List;
 
 @Service
 public class CategoryService {
 
-    private CategoriesRepo categoriesRepo;
-    private ProductsRepo productsRepo;
+    private CategoryRepo categoryRepo;
+    private ProductRepo productRepo;
 
     @Autowired
-    public CategoryService(CategoriesRepo categoriesRepo, ProductsRepo productsRepo) {
-        this.categoriesRepo = categoriesRepo;
-        this.productsRepo = productsRepo;
+    public CategoryService(CategoryRepo categoryRepo, ProductRepo productRepo) {
+        this.categoryRepo = categoryRepo;
+        this.productRepo = productRepo;
     }
 
     public AddCategoryDTO addCategory(AddCategoryDTO addCategoryDTO) {
-        Categories addNewCategory = new Categories(addCategoryDTO);
-        categoriesRepo.save(addNewCategory);
+        Category addNewCategory = new Category(addCategoryDTO);
+        categoryRepo.save(addNewCategory);
         return addCategoryDTO;
     }
 
-    public List<Categories> getAllCategories() {
-        return categoriesRepo.findAll();
+    public List<Category> getAllCategories() {
+        return categoryRepo.findAll();
     }
 
-    public List<Categories> getCategory(Long id) {
-        return categoriesRepo.findById(id);
+    public List<Category> getCategory(Long id) {
+        return categoryRepo.findById(id);
     }
 
     public List<SKU> getAllProductsByCategoryId(Long id) {
-        return productsRepo.findAllByCategoryId(id);
+        return productRepo.findAllByCategoryId(id);
     }
 
 }

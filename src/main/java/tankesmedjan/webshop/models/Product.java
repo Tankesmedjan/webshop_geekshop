@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
-import tankesmedjan.webshop.dto.AddProductsDTO;
+import tankesmedjan.webshop.dto.AddProductDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,25 +15,25 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Products {
+public class Product {
 
-    public Products(AddProductsDTO products) {
-        this.product_name = products.getProduct_name();
-        this.short_desc = products.getShort_desc();
-        this.full_desc = products.getFull_desc();
-        this.product_price = products.getProduct_price();
+    public Product(AddProductDTO products) {
+        this.productName = products.getProductName();
+        this.shortDesc = products.getShortDesc();
+        this.fullDesc = products.getFullDesc();
+        this.productPrice = products.getProductPrice();
 
 
-        this.category = new Categories();
-        this.category.setId(products.getCatid());
+        this.category = new Category();
+        this.category.setId(products.getCatId());
         this.vat = new Vat();
-        this.vat.setId(products.getVatid());
+        this.vat.setId(products.getVatId());
 
-        this.brands = new Brands();
-        this.brands.setId(products.getBrandid());
+        this.brand = new Brand();
+        this.brand.setId(products.getBrandId());
 
-        this.is_featured = products.is_featured();
-        this.has_image = products.isHas_image();
+        this.isFeatured = products.isFeatured();
+        this.hasImage = products.isHasImage();
 
 
     }
@@ -46,40 +46,40 @@ public class Products {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "catid", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Categories category;
+    private Category category;
 
     @Column(length = 32, nullable = false)
-    private String product_name;
+    private String productName;
 
     @Column(length = 128)
-    private String short_desc;
+    private String shortDesc;
 
     @Type(type = "text")
-    private String full_desc;
+    private String fullDesc;
 
-    private Double product_price;
-
-    @Column(columnDefinition = "boolean default false")
-    private Boolean is_featured;
+    private Double productPrice;
 
     @Column(columnDefinition = "boolean default false")
-    private Boolean has_image;
+    private Boolean isFeatured;
+
+    @Column(columnDefinition = "boolean default false")
+    private Boolean hasImage;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brandid", nullable = true)
+    @JoinColumn(name = "brandId", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Brands brands;
+    private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vatid", nullable = true)
+    @JoinColumn(name = "vatId", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Vat vat;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     @JsonIgnore
     private List<SKU> skuList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     @JsonIgnore
     private List<ProductRating> productRatingList;
 }

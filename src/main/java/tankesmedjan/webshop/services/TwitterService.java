@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tankesmedjan.webshop.dto.HashtagDTO;
-import tankesmedjan.webshop.repos.TwitterRepository;
+import tankesmedjan.webshop.repos.TwitterRepo;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -15,14 +15,14 @@ import java.util.List;
 @Transactional
 public class TwitterService {
 
-    private final TwitterRepository twitterRepository;
+    private final TwitterRepo twitterRepo;
 
     @Autowired
-    public TwitterService (TwitterRepository twitterRepository){
-        this.twitterRepository = twitterRepository;
+    public TwitterService (TwitterRepo twitterRepo){
+        this.twitterRepo = twitterRepo;
     }
 
-    Logger logger = Logger.getLogger(TwitterRepository.class);
+    Logger logger = Logger.getLogger(TwitterRepo.class);
 
     public List<HashtagDTO> getHashtags() throws TwitterException {
         List<HashtagDTO> hashtags = new ArrayList<>();
