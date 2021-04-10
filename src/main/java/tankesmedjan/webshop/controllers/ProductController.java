@@ -29,8 +29,10 @@ public class ProductController {
         return productService.getProducts();
     }
 
-//    @PutMapping
-//    public
+    @PutMapping("/edit")
+    public AddProductDTO editProduct(@Param("id") Long id, @RequestBody AddProductDTO editProduct) {
+        return productService.editProduct(id, editProduct);
+    }
 
     @GetMapping("/featured")
     public List<SKU> getAllFeaturedProducts() {

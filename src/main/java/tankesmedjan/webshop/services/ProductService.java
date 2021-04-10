@@ -32,8 +32,6 @@ public class ProductService {
      */
 
     public AddProductDTO addProduct(AddProductDTO addProductDTO) {
-
-
         Product addNewProduct = new Product(addProductDTO);
         productRepo.save(addNewProduct);
         if (addProductDTO.getProductId() == null) {
@@ -51,10 +49,15 @@ public class ProductService {
         return addProductDTO;
     }
 
-    public AddProductDTO editProduct(AddProductDTO addProductDTO) {
-        Product editProduct = new Product(addProductDTO);
-       addProductDTO.setProductName(editProduct.getProductName());
-       return addProductDTO;
+    public AddProductDTO editProduct(Long id, AddProductDTO addProductDTO) {
+        Product productToEdit = productRepo.findSingleProductById(id);
+        productToEdit.setProductName(addProductDTO.getProductName());
+        productToEdit.setFullDesc(addProductDTO.getFullDesc());
+        productToEdit.setShortDesc(addProductDTO.getShortDesc());
+        productToEdit.setIsFeatured(addProductDTO.isFeatured());
+        productToEdit.setProductPrice(addProductDTO.getProductPrice());
+        productRepo.save(productToEdit);
+        return addProductDTO;
     }
 
     public List<Product> getProducts() {

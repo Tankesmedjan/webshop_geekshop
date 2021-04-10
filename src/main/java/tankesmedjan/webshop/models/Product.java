@@ -17,23 +17,22 @@ import java.util.List;
 @NoArgsConstructor
 public class Product {
 
-    public Product(AddProductDTO products) {
-        this.productName = products.getProductName();
-        this.shortDesc = products.getShortDesc();
-        this.fullDesc = products.getFullDesc();
-        this.productPrice = products.getProductPrice();
-
+    public Product(AddProductDTO product) {
+        this.productName = product.getProductName();
+        this.shortDesc = product.getShortDesc();
+        this.fullDesc = product.getFullDesc();
+        this.productPrice = product.getProductPrice();
 
         this.category = new Category();
-        this.category.setId(products.getCatId());
+        this.category.setId(product.getCatId());
         this.vat = new Vat();
-        this.vat.setId(products.getVatId());
+        this.vat.setId(product.getVatId());
 
         this.brand = new Brand();
-        this.brand.setId(products.getBrandId());
+        this.brand.setId(product.getBrandId());
 
-        this.isFeatured = products.isFeatured();
-        this.hasImage = products.isHasImage();
+        this.isFeatured = product.isFeatured();
+        this.hasImage = product.isHasImage();
 
 
     }

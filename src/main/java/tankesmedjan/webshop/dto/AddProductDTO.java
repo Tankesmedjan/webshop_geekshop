@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class AddProductDTO {
 
-
    private String productName;
    private String shortDesc;
    private String fullDesc;
