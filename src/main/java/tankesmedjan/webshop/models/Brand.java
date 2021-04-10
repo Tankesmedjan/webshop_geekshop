@@ -11,18 +11,18 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Brands {
+public class Brand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 32)
-    private String brand_name;
+    private String brandName;
 
-    private String brand_logo;
+    private String brandLogo;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brands")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")
     @JsonIgnore
-    private List<Products> products = new ArrayList<Products>();
+    private List<Product> product = new ArrayList<Product>();
 }

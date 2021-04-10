@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-public class Hashtags {
+public class Hashtag {
     @Id
     @Column(length = 100)
     private String Hashtag;

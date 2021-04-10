@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AddAttributeDTO;
 import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
 import tankesmedjan.webshop.models.Attribute;
-import tankesmedjan.webshop.models.AttributeOptions;
+import tankesmedjan.webshop.models.AttributeOption;
 import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.repos.AttributeOptionsRepo;
+import tankesmedjan.webshop.repos.AttributeOptionRepo;
 import tankesmedjan.webshop.repos.AttributeRepo;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class AttributeService {
     private AttributeRepo attributeRepo;
 
     @Autowired
-    private AttributeOptionsRepo attributeOptionsRepo;
+    private AttributeOptionRepo attributeOptionRepo;
 
     public AddAttributeDTO saveAttribute(AddAttributeDTO addAttributeDTO) {
         Attribute addNewAttribute = new Attribute(addAttributeDTO);
@@ -28,12 +28,12 @@ public class AttributeService {
     }
 
     public AddAttributeOptionDTO addAttributeOption(AddAttributeOptionDTO attributeOptionDTO) {
-        AttributeOptions addNewAttributeOption = new AttributeOptions(attributeOptionDTO);
-        attributeOptionsRepo.save(addNewAttributeOption);
+        AttributeOption addNewAttributeOption = new AttributeOption(attributeOptionDTO);
+        attributeOptionRepo.save(addNewAttributeOption);
         return attributeOptionDTO;
     }
 
     public List<SKU> getAttributesListForProductId(Long id) {
-        return attributeOptionsRepo.findAllAttributesForProduct(id);
+        return attributeOptionRepo.findAllAttributesForProduct(id);
     }
 }

@@ -11,6 +11,6 @@ COPY src src
 RUN ./mvn package -DskipTests
 FROM openjdk:11
 
-COPY /target/demo-0.0.1-SNAPSHOT.jar webshop.jar
+COPY /target/demo-0.0.1-SNAPSHOT.jar geekshop-backend.jar
 
-ENTRYPOINT ["java", "-jar", "/webshop.jar"]
+ENTRYPOINT ["java", "-jar", "/geekshop-backend.jar"]

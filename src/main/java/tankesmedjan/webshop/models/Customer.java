@@ -12,18 +12,18 @@ import javax.persistence.*;
 @Setter
 @Entity
 @NoArgsConstructor
-public class Customers {
+public class Customer {
 
-    public Customers(AccountAndCostumerCreationDTO customers) {
-        this.firstname = customers.getFirstname();
-        this.lastname = customers.getLastname();
-        this.address = customers.getAddress();
-        this.postal = customers.getPostal();
-        this.city = customers.getCity();
-        this.phone = customers.getPhone();
-        this.email = customers.getEmail();
+    public Customer(AccountAndCostumerCreationDTO customer) {
+        this.firstname = customer.getFirstname();
+        this.lastname = customer.getLastname();
+        this.address = customer.getAddress();
+        this.postal = customer.getPostal();
+        this.city = customer.getCity();
+        this.phone = customer.getPhone();
+        this.email = customer.getEmail();
         this.account = new Account();
-        this.account.setId(customers.getAccount_id());
+        this.account.setId(customer.getAccount_id());
     }
 
     @Id

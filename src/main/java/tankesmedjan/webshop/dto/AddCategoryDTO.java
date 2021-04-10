@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class AddCategoryDTO {
 
-    private String category_name;
-    private Long parent_category_id;
+    private String categoryName;
+    private Long parentCategoryId;
 
 }

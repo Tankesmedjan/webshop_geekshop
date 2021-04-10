@@ -3,7 +3,7 @@ package tankesmedjan.webshop.controllers;
 import tankesmedjan.webshop.dto.AddCategoryDTO;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.CategoryService;
-import tankesmedjan.webshop.models.Categories;
+import tankesmedjan.webshop.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/categories")
-public class CategoriesController {
+public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
@@ -23,7 +23,7 @@ public class CategoriesController {
     }
 
     @GetMapping
-    public List<Categories> getAllCategories() {
+    public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
@@ -32,7 +32,7 @@ public class CategoriesController {
         return categoryService.getAllProductsByCategoryId(id);
     }
     @GetMapping("/category/{id}")
-    public List<Categories> getCategoryInfo(@PathVariable Long id) {
+    public List<Category> getCategoryInfo(@PathVariable Long id) {
         return categoryService.getCategory(id);
     }
 }

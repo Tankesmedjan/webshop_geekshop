@@ -29,7 +29,7 @@ public class TwitterController {
     @PostMapping(path = "/post-to-twitter")
     public String postToTwitter(@RequestBody TwitterDTO twitterDTO) throws TwitterException {
         return twitterService.postToTwitter(twitterDTO.getMessage() + System.lineSeparator() + twitterDTO.getUrl() +
-                System.lineSeparator() + twitterService.getHashtags().get(twitterDTO.getHashtag() - 1).hashtagname);
+                System.lineSeparator() + twitterService.getHashtags().get(twitterDTO.getHashtag() - 1).hashtagName);
 
     }
 }

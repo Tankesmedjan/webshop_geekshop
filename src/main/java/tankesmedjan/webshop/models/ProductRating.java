@@ -1,7 +1,6 @@
 package tankesmedjan.webshop.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,13 +19,13 @@ public class ProductRating {
     public ProductRating(AddProductRatingDTO productRating) {
 
         this.rating = productRating.getRating();
-        this.ratingmessage = productRating.getRatingmessage();
+        this.ratingMessage = productRating.getRatingMessage();
 
-        this.products = new Products();
-        this.products.setId(productRating.getProducts_id());
+        this.product = new Product();
+        this.product.setId(productRating.getProductId());
 
         this.account = new Account();
-        this.account.setId(productRating.getAccount_id());
+        this.account.setId(productRating.getAccountId());
     }
 
 
@@ -39,15 +38,15 @@ public class ProductRating {
     private int rating;
 
     @Type(type = "text")
-    private String ratingmessage;
+    private String ratingMessage;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "products_id", nullable = true)
+    @JoinColumn(name = "productId", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Products products;
+    private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", nullable = true)
+    @JoinColumn(name = "accountId", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyIntitializer", "handler"})
     private Account account;
 

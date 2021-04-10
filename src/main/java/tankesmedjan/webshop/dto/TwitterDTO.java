@@ -12,7 +12,4 @@ public class TwitterDTO {
     private String url;
     private int hashtag;
 
-
-    //    private ImageIcon img;
-
 }

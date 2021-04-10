@@ -18,11 +18,11 @@ public class Vat {
     private Long id;
 
     @Column(length = 32)
-    private String vat_name;
-    private int vat_value;
+    private String vatName;
+    private int vatValue;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vat")
     @JsonIgnore
-    private List<Products> products = new ArrayList<Products>();
+    private List<Product> product = new ArrayList<Product>();
 
 }

@@ -8,8 +8,8 @@ import lombok.Setter;
 public class AddProductRatingDTO {
 
     private int rating;
-    private String ratingmessage;
+    private String ratingMessage;
 
-    private String account_id;
-    private Long products_id;
+    private String accountId;
+    private Long productId;
 }

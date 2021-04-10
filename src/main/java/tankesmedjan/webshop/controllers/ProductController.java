@@ -3,8 +3,8 @@ package tankesmedjan.webshop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.dto.AddProductsDTO;
-import tankesmedjan.webshop.models.Products;
+import tankesmedjan.webshop.dto.AddProductDTO;
+import tankesmedjan.webshop.models.Product;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.ProductService;
 
@@ -13,19 +13,19 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/products")
-public class ProductsController {
+public class ProductController {
 
 
     @Autowired
     private ProductService productService;
 
     @PostMapping
-    public AddProductsDTO addProducts(@RequestBody AddProductsDTO product ) {
+    public AddProductDTO addProducts(@RequestBody AddProductDTO product ) {
        return productService.addProduct(product);
     }
 
     @GetMapping
-    public List<Products> getAllProducts() {
+    public List<Product> getAllProducts() {
         return productService.getProducts();
     }
 
@@ -49,7 +49,7 @@ public class ProductsController {
     }
 
     @DeleteMapping("/delete")
-    public Products deleteProducts(@RequestParam Long id) {
+    public Product deleteProducts(@RequestParam Long id) {
         return productService.deleteProduct(id);
     }
 }

@@ -7,11 +7,11 @@ import lombok.Setter;
 @Setter
 public class HashtagDTO {
 
-    public int hashtagid;
-    public String hashtagname;
+    public int hashtagId;
+    public String hashtagName;
 
-    public HashtagDTO(int id, String hashtagname) {
-        this.hashtagid = id;
-        this.hashtagname = hashtagname;
+    public HashtagDTO(int id, String hashtagName) {
+        this.hashtagId = id;
+        this.hashtagName = hashtagName;
     }
 }

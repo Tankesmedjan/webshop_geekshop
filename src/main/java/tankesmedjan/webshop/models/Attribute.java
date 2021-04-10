@@ -16,17 +16,17 @@ import java.util.List;
 public class Attribute {
 
     public Attribute(AddAttributeDTO attribute) {
-        this.attribute_name = attribute.getAttribute_name();
+        this.attributeName = attribute.getAttribute_name();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String attribute_name;
+    private String attributeName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "attribute")
     @JsonIgnore
-    private List<AttributeOptions> attributeOptions;
+    private List<AttributeOption> attributeOptions;
 
 }
