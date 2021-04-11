@@ -40,7 +40,7 @@ public class ProductController {
     }
 
     //  "/{id}"
-    @GetMapping("/id")
+    @GetMapping("/product")
     public List<SKU> getProductById(@Param("id") Long id) {
         return productService.getProductById(id);
     }
