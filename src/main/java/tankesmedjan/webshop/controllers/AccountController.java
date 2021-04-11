@@ -2,6 +2,7 @@ package tankesmedjan.webshop.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.models.Account;
@@ -35,8 +36,9 @@ public class AccountController {
        return accountService.checkAuth(username, password);
     }
 
-    @GetMapping("/auth/userdata/{id}")
-    public List<Account> getUserData(@PathVariable String id) {
+    //  "/auth/userdata/{id}"
+    @GetMapping("/auth/userdata")
+    public List<Account> getUserData(@Param("id") String id) {
         return accountService.getAccount(id);
     }
 

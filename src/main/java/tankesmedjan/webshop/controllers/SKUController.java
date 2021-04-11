@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.SKUService;
@@ -26,18 +27,21 @@ public class SKUController {
         return skuService.getAllSku();
     }
 
-    @GetMapping("/product/{id}")
-    public List<SKU> getSKUSByProductId(@PathVariable Long id) {
+    //  "/product/{id}"
+    @GetMapping("/product")
+    public List<SKU> getSKUSByProductId(@Param("id") Long id) {
         return skuService.getSKUsByProductId(id);
     }
 
-    @GetMapping("/{sku}")
-    public List<SKU> getSKUById(@PathVariable String sku) {
+    //  "/{sku}"
+    @GetMapping("/sku")
+    public List<SKU> getSKUById(@Param("sku") String sku) {
         return skuService.getSKUProduct(sku);
     }
 
-    @GetMapping("/id/{id}")
-    public List<SKU> getSKUBySkuId(@PathVariable Long id) {
+    //  "/id/{id}"
+    @GetMapping("/id")
+    public List<SKU> getSKUBySkuId(@Param("id") Long id) {
         return skuService.getSKUById(id);
     }
 }

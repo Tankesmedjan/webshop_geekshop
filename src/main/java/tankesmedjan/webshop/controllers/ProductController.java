@@ -39,8 +39,9 @@ public class ProductController {
         return productService.getAllFeaturedProducts();
     }
 
-    @GetMapping("/{id}")
-    public List<SKU> getProductById(@PathVariable Long id) {
+    //  "/{id}"
+    @GetMapping("/id")
+    public List<SKU> getProductById(@Param("id") Long id) {
         return productService.getProductById(id);
     }
 

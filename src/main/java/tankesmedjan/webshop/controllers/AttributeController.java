@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.AttributeDTO;
 import tankesmedjan.webshop.dto.AttributeOptionDTO;
@@ -28,8 +29,9 @@ public class AttributeController {
         return attributeOptionDTO;
     }
 
-    @GetMapping("/product/{id}")
-    public List<SKU> getAttributesListForProductId(@PathVariable Long id) {
+    //  "/product/{id}"
+    @GetMapping("/product")
+    public List<SKU> getAttributesListForProductId(@Param("id") Long id) {
         return attributeService.getAttributesListForProductId(id);
     }
 

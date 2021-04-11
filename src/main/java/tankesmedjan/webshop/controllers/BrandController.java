@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.models.Brand;
 import tankesmedjan.webshop.models.SKU;
@@ -26,13 +27,15 @@ public class BrandController {
         return brandService.saveBrand(brand);
     }
 
-    @GetMapping("/{id}")
-    public List<SKU> getAllProductsFromBrand(@PathVariable Long id) {
+    //  "/{id}"
+    @GetMapping("/id")
+    public List<SKU> getAllProductsFromBrand(@Param("id") Long id) {
         return brandService.getProductsByBrandId(id);
     }
 
-    @GetMapping("/brand/{id}")
-    public List<Brand> getBrand(@PathVariable Long id) {
+    //  "/brand/{id}"
+    @GetMapping("/brand")
+    public List<Brand> getBrand(@Param("id") Long id) {
         return brandService.getBrand(id);
     }
 }

@@ -1,6 +1,7 @@
 package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.CategoryDTO;
 import tankesmedjan.webshop.models.Category;
@@ -27,12 +28,15 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @GetMapping("/{id}")
-    public List<SKU> getAllProductsInCategory(@PathVariable Long id) {
+    //  "/{id}"
+    @GetMapping("/id")
+    public List<SKU> getAllProductsInCategory(@Param("id") Long id) {
         return categoryService.getAllProductsByCategoryId(id);
     }
-    @GetMapping("/category/{id}")
-    public List<Category> getCategoryInfo(@PathVariable Long id) {
+
+    //  "/category/{id}"
+    @GetMapping("/category")
+    public List<Category> getCategoryInfo(@Param("id") Long id) {
         return categoryService.getCategory(id);
     }
 }
