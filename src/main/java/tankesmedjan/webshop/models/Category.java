@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tankesmedjan.webshop.dto.AddCategoryDTO;
+import tankesmedjan.webshop.dto.CategoryDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Category {
 
-    public Category(AddCategoryDTO category) {
+    public Category(CategoryDTO category) {
         this.categoryName = category.getCategoryName();
         this.parentCategoryId = category.getParentCategoryId();
     }

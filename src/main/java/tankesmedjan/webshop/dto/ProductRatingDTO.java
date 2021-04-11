@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AddProductRatingDTO {
+public class ProductRatingDTO {
 
     private int rating;
     private String ratingMessage;

@@ -2,7 +2,7 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tankesmedjan.webshop.dto.AddProductDTO;
+import tankesmedjan.webshop.dto.ProductDTO;
 import tankesmedjan.webshop.models.Product;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.repos.ProductRepo;
@@ -25,7 +25,7 @@ public class ProductService {
     /**
      *
      * Method to add products, and creating a SKU with an entity connection between them.
-     * @param addProductDTO holds information about the product and sku.
+     * @param productDTO holds information about the product and sku.
      *
      * skuService adds the sku to the database.
      * The sku then adds it's new id back to addNewProduct and it gets saved into the database.
@@ -34,37 +34,38 @@ public class ProductService {
      *
      */
 
-    public AddProductDTO addProduct(AddProductDTO addProductDTO) {
-        Product addNewProduct = new Product(addProductDTO);
-        productRepo.save(addNewProduct);
-        if (addProductDTO.getProductId() == null) {
-            addProductDTO.setProductId(addNewProduct.getId());
+    public ProductDTO addProduct(ProductDTO productDTO) {
+        Product addNewProduct = new Product(productDTO);
+
+        if (productDTO.getProductId() == null) {
+            productRepo.save(addNewProduct);
+            productDTO.setProductId(addNewProduct.getId());
         } else {
-            addProductDTO.setProductId(addProductDTO.getProductId());
+            productDTO.setProductId(productDTO.getProductId());
         }
 
-        if (addProductDTO.getAttributeOptionId() == null) {
-            addProductDTO.setAttributeOptionId(0L);
+        if (productDTO.getAttributeOptionId() == null) {
+            productDTO.setAttributeOptionId(0L);
         }
         else {
-            addProductDTO.setAttributeOptionId(addProductDTO.getAttributeOptionId());
+            productDTO.setAttributeOptionId(productDTO.getAttributeOptionId());
         }
 
-        SKU sku = new SKU(addProductDTO);
+        SKU sku = new SKU(productDTO);
         skuService.addSKU(sku);
 
-        return addProductDTO;
+        return productDTO;
     }
 
-    public AddProductDTO editProduct(Long id, AddProductDTO addProductDTO) {
+    public ProductDTO editProduct(Long id, ProductDTO productDTO) {
         Product productToEdit = productRepo.findSingleProductById(id);
-        productToEdit.setProductName(addProductDTO.getProductName());
-        productToEdit.setFullDesc(addProductDTO.getFullDesc());
-        productToEdit.setShortDesc(addProductDTO.getShortDesc());
-        productToEdit.setIsFeatured(addProductDTO.isFeatured());
-        productToEdit.setProductPrice(addProductDTO.getProductPrice());
+        productToEdit.setProductName(productDTO.getProductName());
+        productToEdit.setFullDesc(productDTO.getFullDesc());
+        productToEdit.setShortDesc(productDTO.getShortDesc());
+        productToEdit.setIsFeatured(productDTO.isFeatured());
+        productToEdit.setProductPrice(productDTO.getProductPrice());
         productRepo.save(productToEdit);
-        return addProductDTO;
+        return productDTO;
     }
 
     public List<Product> getProducts() {

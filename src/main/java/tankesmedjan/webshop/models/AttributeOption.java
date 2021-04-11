@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tankesmedjan.webshop.dto.AddAttributeOptionDTO;
+import tankesmedjan.webshop.dto.AttributeOptionDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class AttributeOption {
 
-    public AttributeOption(AddAttributeOptionDTO attributeOption) {
+    public AttributeOption(AttributeOptionDTO attributeOption) {
         this.attributeOptionName = attributeOption.getAttributeOptionName();
         this.attribute = new Attribute();
         this.attribute.setId(attributeOption.getAttribute());

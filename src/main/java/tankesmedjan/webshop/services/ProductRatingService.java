@@ -2,7 +2,7 @@ package tankesmedjan.webshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tankesmedjan.webshop.dto.AddProductRatingDTO;
+import tankesmedjan.webshop.dto.ProductRatingDTO;
 import tankesmedjan.webshop.models.ProductRating;
 import tankesmedjan.webshop.repos.ProductRatingRepo;
 
@@ -16,12 +16,12 @@ private final ProductRatingRepo productRatingRepo;
     this.productRatingRepo = productRatingRepo;
 }
 
-public AddProductRatingDTO addProductRating(AddProductRatingDTO addProductRatingDTO){
+public ProductRatingDTO addProductRating(ProductRatingDTO productRatingDTO){
 
-    ProductRating addNewRating = new ProductRating(addProductRatingDTO);
+    ProductRating addNewRating = new ProductRating(productRatingDTO);
     productRatingRepo.save(addNewRating);
 
-    return addProductRatingDTO;
+    return productRatingDTO;
 }
 
 }

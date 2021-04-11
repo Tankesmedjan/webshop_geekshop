@@ -3,7 +3,7 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.dto.AddProductRatingDTO;
+import tankesmedjan.webshop.dto.ProductRatingDTO;
 import tankesmedjan.webshop.services.ProductRatingService;
 
 @RestController
@@ -15,7 +15,7 @@ public class ProductRatingController {
     private ProductRatingService productRatingService;
 
     @PostMapping
-    public AddProductRatingDTO addProducts(@RequestBody AddProductRatingDTO addProductRatingDTO ) {
-        return productRatingService.addProductRating(addProductRatingDTO);
+    public ProductRatingDTO addProducts(@RequestBody ProductRatingDTO productRatingDTO) {
+        return productRatingService.addProductRating(productRatingDTO);
     }
 }

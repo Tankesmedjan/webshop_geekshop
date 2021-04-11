@@ -3,7 +3,7 @@ package tankesmedjan.webshop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.dto.AddProductDTO;
+import tankesmedjan.webshop.dto.ProductDTO;
 import tankesmedjan.webshop.models.Product;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.ProductService;
@@ -20,7 +20,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping
-    public AddProductDTO addProducts(@RequestBody AddProductDTO product ) {
+    public ProductDTO addProducts(@RequestBody ProductDTO product ) {
        return productService.addProduct(product);
     }
 
@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     @PutMapping("/edit")
-    public AddProductDTO editProduct(@Param("id") Long id, @RequestBody AddProductDTO editProduct) {
+    public ProductDTO editProduct(@Param("id") Long id, @RequestBody ProductDTO editProduct) {
         return productService.editProduct(id, editProduct);
     }
 

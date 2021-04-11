@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AddAttributeDTO {
+public class AttributeDTO {
 
     private String attribute_name;
 }

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AddAttributeOptionDTO {
+public class AttributeOptionDTO {
 
     private String attributeOptionName;
     private Long attribute;

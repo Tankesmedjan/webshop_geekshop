@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tankesmedjan.webshop.dto.AddProductDTO;
+import tankesmedjan.webshop.dto.ProductDTO;
 
 import javax.persistence.*;
 
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class SKU {
 
-    public SKU(AddProductDTO sku) {
+    public SKU(ProductDTO sku) {
         this.sku = sku.getSku();
         this.stock = sku.getStock();
         this.attributeOption = new AttributeOption();

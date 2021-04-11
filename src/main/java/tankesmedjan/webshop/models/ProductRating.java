@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
-import tankesmedjan.webshop.dto.AddProductRatingDTO;
+import tankesmedjan.webshop.dto.ProductRatingDTO;
 
 import javax.persistence.*;
 
@@ -16,7 +16,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class ProductRating {
 
-    public ProductRating(AddProductRatingDTO productRating) {
+    public ProductRating(ProductRatingDTO productRating) {
 
         this.rating = productRating.getRating();
         this.ratingMessage = productRating.getRatingMessage();

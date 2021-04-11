@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tankesmedjan.webshop.dto.AddAttributeDTO;
+import tankesmedjan.webshop.dto.AttributeDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Attribute {
 
-    public Attribute(AddAttributeDTO attribute) {
+    public Attribute(AttributeDTO attribute) {
         this.attributeName = attribute.getAttribute_name();
     }
 

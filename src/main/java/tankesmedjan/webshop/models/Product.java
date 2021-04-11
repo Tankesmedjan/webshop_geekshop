@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
-import tankesmedjan.webshop.dto.AddProductDTO;
+import tankesmedjan.webshop.dto.ProductDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Product {
 
-    public Product(AddProductDTO product) {
+    public Product(ProductDTO product) {
         this.productName = product.getProductName();
         this.shortDesc = product.getShortDesc();
         this.fullDesc = product.getFullDesc();

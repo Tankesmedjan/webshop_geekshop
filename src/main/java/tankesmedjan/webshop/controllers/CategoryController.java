@@ -2,7 +2,7 @@ package tankesmedjan.webshop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.dto.AddCategoryDTO;
+import tankesmedjan.webshop.dto.CategoryDTO;
 import tankesmedjan.webshop.models.Category;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.CategoryService;
@@ -18,7 +18,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @PostMapping
-    public AddCategoryDTO addCategory(@RequestBody AddCategoryDTO category) {
+    public CategoryDTO addCategory(@RequestBody CategoryDTO category) {
         return categoryService.addCategory(category);
     }
 
