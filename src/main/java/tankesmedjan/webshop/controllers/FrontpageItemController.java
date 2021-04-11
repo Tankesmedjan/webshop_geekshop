@@ -1,10 +1,10 @@
 package tankesmedjan.webshop.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tankesmedjan.webshop.services.FrontPageService;
 import tankesmedjan.webshop.models.FrontpageBanner;
 import tankesmedjan.webshop.models.FrontpageSlide;
-import org.springframework.beans.factory.annotation.Autowired;
+import tankesmedjan.webshop.services.FrontPageService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")

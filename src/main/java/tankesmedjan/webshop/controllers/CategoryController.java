@@ -1,11 +1,11 @@
 package tankesmedjan.webshop.controllers;
 
-import tankesmedjan.webshop.dto.AddCategoryDTO;
-import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.services.CategoryService;
-import tankesmedjan.webshop.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.dto.AddCategoryDTO;
+import tankesmedjan.webshop.models.Category;
+import tankesmedjan.webshop.models.SKU;
+import tankesmedjan.webshop.services.CategoryService;
 
 import java.util.List;
 

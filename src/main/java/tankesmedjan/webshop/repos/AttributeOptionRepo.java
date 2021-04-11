@@ -1,8 +1,8 @@
 package tankesmedjan.webshop.repos;
 
 import org.springframework.data.jpa.repository.Query;
-import tankesmedjan.webshop.models.AttributeOption;
 import org.springframework.data.repository.CrudRepository;
+import tankesmedjan.webshop.models.AttributeOption;
 import tankesmedjan.webshop.models.SKU;
 
 import java.util.List;

@@ -4,11 +4,10 @@ package tankesmedjan.webshop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
-import tankesmedjan.webshop.services.AccountService;
 import tankesmedjan.webshop.models.Account;
+import tankesmedjan.webshop.services.AccountService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")

@@ -1,7 +1,7 @@
 package tankesmedjan.webshop.repos;
 
-import tankesmedjan.webshop.models.Category;
 import org.springframework.data.repository.CrudRepository;
+import tankesmedjan.webshop.models.Category;
 
 import java.util.List;
 

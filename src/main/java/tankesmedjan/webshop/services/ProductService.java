@@ -29,6 +29,9 @@ public class ProductService {
      *
      * skuService adds the sku to the database.
      * The sku then adds it's new id back to addNewProduct and it gets saved into the database.
+     * If no ID is given to the added product the ID gets autogeneretated. If productID is given, in case of adding multiple
+     * variations of same product, the given ID will be used. Same goes for attributeID.
+     *
      */
 
     public AddProductDTO addProduct(AddProductDTO addProductDTO) {
@@ -36,12 +39,16 @@ public class ProductService {
         productRepo.save(addNewProduct);
         if (addProductDTO.getProductId() == null) {
             addProductDTO.setProductId(addNewProduct.getId());
-        } else addProductDTO.setProductId(addProductDTO.getProductId());
+        } else {
+            addProductDTO.setProductId(addProductDTO.getProductId());
+        }
 
         if (addProductDTO.getAttributeOptionId() == null) {
             addProductDTO.setAttributeOptionId(0L);
         }
-        else addProductDTO.setAttributeOptionId(addProductDTO.getAttributeOptionId());
+        else {
+            addProductDTO.setAttributeOptionId(addProductDTO.getAttributeOptionId());
+        }
 
         SKU sku = new SKU(addProductDTO);
         skuService.addSKU(sku);
@@ -81,7 +88,6 @@ public class ProductService {
 
     public Product deleteProduct(Long id) {
         Product product = productRepo.findSingleProductById(id);
-        List<SKU> SKUsToDelete = skuService.getSKUsByProductId(id);
         productRepo.delete(product);
         return product;
     }

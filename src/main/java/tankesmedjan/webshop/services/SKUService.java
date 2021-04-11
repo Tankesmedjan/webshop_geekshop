@@ -28,8 +28,4 @@ public class SKUService {
     public List<SKU> getSKUProduct(String sku) { return skuRepo.findBySku(sku); }
 
     public List<SKU> getSKUById(Long id) { return skuRepo.findSKUById(id); }
-
-    public void deleteSKUById(Long id) {
-        skuRepo.deleteById(id);
-    }
 }
