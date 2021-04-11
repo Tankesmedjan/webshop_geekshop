@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    container_name: "db"
+    restart: always
+    environment:
+      MYSQL_DATABASE: "geekshop"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "root"
+      MYSQL_ROOT_PASSWORD: "rootroot"
+      MYSQL_ROOT_HOST: '%'
+    command: mysqld --sql_mode=""
+    networks:
+      - backend
+    volumes:
+      - ./demo-dump.sql:/docker-entrypoint-initdb.d/demo-dump.sql
+
+  app-server:
+    build:
+      context: backend
+      dockerfile: dockerfile
+    ports:
+      - "3001:3001"
+    restart: always
+    depends_on: 
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/geekshop?serverTimezone=UTC&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: "user"
+      SPRING_DATASOURCE_PASSWORD: "root"
+    networks:
+      - backend
+      - frontend
+
+  app-client:
+    build:
+      context: frontend
+      dockerfile: dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://app-server:3001
+    ports:
+      - "3000:80"
+    restart: always
+    depends_on:
+      - app-server
+    networks:
+      - frontend
+
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge
