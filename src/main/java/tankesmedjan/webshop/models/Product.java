@@ -34,7 +34,6 @@ public class Product {
         this.isFeatured = product.isFeatured();
         this.hasImage = product.isHasImage();
 
-
     }
 
     @Id

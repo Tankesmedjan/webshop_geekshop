@@ -16,12 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 public class AttributeOption {
 
-    public AttributeOption(AttributeOptionDTO attributeOption) {
-        this.attributeOptionName = attributeOption.getAttributeOptionName();
-        this.attribute = new Attribute();
-        this.attribute.setId(attributeOption.getAttribute());
-    }
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
