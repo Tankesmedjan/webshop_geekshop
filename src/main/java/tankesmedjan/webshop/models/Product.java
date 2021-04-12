@@ -2,11 +2,11 @@ package tankesmedjan.webshop.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
-import tankesmedjan.webshop.dto.ProductDTO;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,26 +15,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Product {
-
-    public Product(ProductDTO product) {
-        this.productName = product.getProductName();
-        this.shortDesc = product.getShortDesc();
-        this.fullDesc = product.getFullDesc();
-        this.productPrice = product.getProductPrice();
-
-        this.category = new Category();
-        this.category.setId(product.getCatId());
-        this.vat = new Vat();
-        this.vat.setId(product.getVatId());
-
-        this.brand = new Brand();
-        this.brand.setId(product.getBrandId());
-
-        this.isFeatured = product.isFeatured();
-        this.hasImage = product.isHasImage();
-
-    }
 
     @Id
     @Column(length = 10)
@@ -80,4 +62,5 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     @JsonIgnore
     private List<ProductRating> productRatingList;
+
 }

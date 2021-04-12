@@ -28,13 +28,11 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    //  "/{id}"
     @GetMapping("/id")
     public List<SKU> getAllProductsInCategory(@Param("id") Long id) {
         return categoryService.getAllProductsByCategoryId(id);
     }
 
-    //  "/category/{id}"
     @GetMapping("/category")
     public List<Category> getCategoryInfo(@Param("id") Long id) {
         return categoryService.getCategory(id);

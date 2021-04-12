@@ -3,8 +3,8 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.ProductDTO;
-import tankesmedjan.webshop.models.Product;
-import tankesmedjan.webshop.models.SKU;
+import tankesmedjan.webshop.mappers.ProductMapper;
+import tankesmedjan.webshop.models.*;
 import tankesmedjan.webshop.repos.ProductRepo;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class ProductService {
      */
 
     public ProductDTO addProduct(ProductDTO productDTO) {
-        Product addNewProduct = new Product(productDTO);
+        Product addNewProduct = ProductMapper.INSTANCE.productDTOtoProduct(productDTO);
 
         if (productDTO.getProductId() == null) {
             productRepo.save(addNewProduct);

@@ -29,7 +29,6 @@ public class AttributeController {
         return attributeOptionDTO;
     }
 
-    //  "/product/{id}"
     @GetMapping("/product")
     public List<SKU> getAttributesListForProductId(@Param("id") Long id) {
         return attributeService.getAttributesListForProductId(id);

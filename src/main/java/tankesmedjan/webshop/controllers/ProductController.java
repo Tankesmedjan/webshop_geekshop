@@ -20,7 +20,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping
-    public ProductDTO addProducts(@RequestBody ProductDTO product ) {
+    public ProductDTO addProducts(@RequestBody ProductDTO product) {
        return productService.addProduct(product);
     }
 
@@ -39,7 +39,6 @@ public class ProductController {
         return productService.getAllFeaturedProducts();
     }
 
-    //  "/{id}"
     @GetMapping("/product")
     public List<SKU> getProductById(@Param("id") Long id) {
         return productService.getProductById(id);

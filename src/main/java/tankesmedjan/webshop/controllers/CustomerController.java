@@ -22,7 +22,6 @@ public class CustomerController {
         return customer;
     }
 
-    //  "/{id}"
     @GetMapping
     public List<Customer> getCustomerAccount(@Param("id") String id){
         return customerService.getCustomerAccount(id);

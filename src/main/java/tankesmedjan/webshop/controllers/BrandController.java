@@ -28,13 +28,11 @@ public class BrandController {
         return brandService.saveBrand(brandDTO);
     }
 
-    //  "/{id}"
     @GetMapping("/id")
     public List<SKU> getAllProductsFromBrand(@Param("id") Long id) {
         return brandService.getProductsByBrandId(id);
     }
 
-    //  "/brand/{id}"
     @GetMapping("/brand")
     public List<Brand> getBrand(@Param("id") Long id) {
         return brandService.getBrand(id);

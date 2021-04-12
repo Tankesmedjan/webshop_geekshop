@@ -27,19 +27,16 @@ public class SKUController {
         return skuService.getAllSku();
     }
 
-    //  "/product/{id}"
     @GetMapping("/product")
     public List<SKU> getSKUSByProductId(@Param("id") Long id) {
         return skuService.getSKUsByProductId(id);
     }
 
-    //  "/{sku}"
     @GetMapping("/sku")
     public List<SKU> getSKUById(@Param("sku") String sku) {
         return skuService.getSKUProduct(sku);
     }
 
-    //  "/id/{id}"
     @GetMapping("/id")
     public List<SKU> getSKUBySkuId(@Param("id") Long id) {
         return skuService.getSKUById(id);

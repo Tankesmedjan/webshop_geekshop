@@ -36,7 +36,6 @@ public class AccountController {
        return accountService.checkAuth(username, password);
     }
 
-    //  "/auth/userdata/{id}"
     @GetMapping("/auth/userdata")
     public List<Account> getUserData(@Param("id") String id) {
         return accountService.getAccount(id);

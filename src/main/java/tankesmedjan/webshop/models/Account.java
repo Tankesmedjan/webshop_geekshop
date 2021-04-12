@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 
 import javax.persistence.*;
 import java.nio.charset.StandardCharsets;
