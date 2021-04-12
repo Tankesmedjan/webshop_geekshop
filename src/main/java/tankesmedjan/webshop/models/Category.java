@@ -15,11 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Category {
 
-    public Category(CategoryDTO category) {
-        this.categoryName = category.getCategoryName();
-        this.parentCategoryId = category.getParentCategoryId();
-    }
-
     @Id
     @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

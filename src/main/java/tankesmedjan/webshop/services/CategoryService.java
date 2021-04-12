@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.CategoryDTO;
 import tankesmedjan.webshop.models.Category;
 import tankesmedjan.webshop.models.SKU;
+import tankesmedjan.webshop.repos.CategoryMapper;
 import tankesmedjan.webshop.repos.CategoryRepo;
 import tankesmedjan.webshop.repos.ProductRepo;
 
@@ -13,8 +14,8 @@ import java.util.List;
 @Service
 public class CategoryService {
 
-    private CategoryRepo categoryRepo;
-    private ProductRepo productRepo;
+    private final CategoryRepo categoryRepo;
+    private final ProductRepo productRepo;
 
     @Autowired
     public CategoryService(CategoryRepo categoryRepo, ProductRepo productRepo) {
@@ -23,8 +24,8 @@ public class CategoryService {
     }
 
     public CategoryDTO addCategory(CategoryDTO categoryDTO) {
-        Category addNewCategory = new Category(categoryDTO);
-        categoryRepo.save(addNewCategory);
+        Category category = CategoryMapper.INSTANCE.dtoToCategory(categoryDTO);
+        categoryRepo.save(category);
         return categoryDTO;
     }
 

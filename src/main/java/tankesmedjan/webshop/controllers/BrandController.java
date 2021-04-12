@@ -3,6 +3,7 @@ package tankesmedjan.webshop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
+import tankesmedjan.webshop.dto.BrandDTO;
 import tankesmedjan.webshop.models.Brand;
 import tankesmedjan.webshop.models.SKU;
 import tankesmedjan.webshop.services.BrandService;
@@ -23,8 +24,8 @@ public class BrandController {
     }
 
     @PostMapping
-    public Brand addBrand(@RequestBody Brand brand) {
-        return brandService.saveBrand(brand);
+    public BrandDTO addBrand(@RequestBody BrandDTO brandDTO) {
+        return brandService.saveBrand(brandDTO);
     }
 
     //  "/{id}"
