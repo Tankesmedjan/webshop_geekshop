@@ -1,11 +1,15 @@
 package tankesmedjan.webshop.services;
 
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.models.Account;
 import tankesmedjan.webshop.models.Customer;
+import tankesmedjan.webshop.repos.AccountMapper;
 import tankesmedjan.webshop.repos.AccountRepo;
+import tankesmedjan.webshop.repos.CategoryMapper;
+import tankesmedjan.webshop.repos.CustomerMapper;
 
 import java.util.List;
 
@@ -27,16 +31,16 @@ public class AccountService {
         return accountRepo.findAll();
     }
 
-    public AccountAndCostumerCreationDTO saveAccount(AccountAndCostumerCreationDTO accountAndCostumerCreationDTO) {
-        Account createNewAccount = new Account(accountAndCostumerCreationDTO);
+    public AccountAndCostumerCreationDTO saveAccount(AccountAndCostumerCreationDTO accountAndCostumerCreationDTO){
+        Account createNewAccount = AccountMapper.INSTANCE.dtoToAccount(accountAndCostumerCreationDTO);
         accountRepo.save(createNewAccount);
         accountAndCostumerCreationDTO.setAccount_id(createNewAccount.getId());
 
-        Customer customer = new Customer(accountAndCostumerCreationDTO);
+        Customer customer = CustomerMapper.INSTANCE.dtoToCustomer(accountAndCostumerCreationDTO);
+        customer.setAccount(createNewAccount);
         customerService.addCustomer(customer);
 
         return accountAndCostumerCreationDTO;
-
     }
 
     public List<Account> getAccount(String id) {
