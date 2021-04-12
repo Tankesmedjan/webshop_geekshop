@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.CategoryDTO;
 import tankesmedjan.webshop.models.Category;
 import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.repos.CategoryMapper;
+import tankesmedjan.webshop.mappers.CategoryMapper;
 import tankesmedjan.webshop.repos.CategoryRepo;
 import tankesmedjan.webshop.repos.ProductRepo;
 

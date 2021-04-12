@@ -21,17 +21,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Account {
 
-    public Account(AccountAndCostumerCreationDTO account) {
-
-        String sha256hex = Hashing.sha256()
-                .hashString(account.getPassword(), StandardCharsets.UTF_8)
-                .toString();
-
-        this.username = account.getUsername();
-        this.password = sha256hex;
-        this.role = account.getRole();
-    }
-
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
@@ -46,4 +35,10 @@ public class Account {
     @JsonIgnore
     private List<ProductRating> productRating = new ArrayList<ProductRating>();
 
+    public void setPassword(String password) {
+        String sha256hex = Hashing.sha256()
+                .hashString(password, StandardCharsets.UTF_8)
+                .toString();
+        this.password = sha256hex;
+    }
 }

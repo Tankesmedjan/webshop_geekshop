@@ -14,18 +14,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Customer {
 
-    public Customer(AccountAndCostumerCreationDTO customer) {
-        this.firstname = customer.getFirstname();
-        this.lastname = customer.getLastname();
-        this.address = customer.getAddress();
-        this.postal = customer.getPostal();
-        this.city = customer.getCity();
-        this.phone = customer.getPhone();
-        this.email = customer.getEmail();
-        this.account = new Account();
-        this.account.setId(customer.getAccount_id());
-    }
-
     @Id
     @Column(length = 20)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

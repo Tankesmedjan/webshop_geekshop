@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.BrandDTO;
 import tankesmedjan.webshop.models.Brand;
 import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.repos.BrandMapper;
+import tankesmedjan.webshop.mappers.BrandMapper;
 import tankesmedjan.webshop.repos.BrandRepo;
 import tankesmedjan.webshop.repos.ProductRepo;
 

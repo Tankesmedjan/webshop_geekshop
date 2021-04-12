@@ -1,4 +1,4 @@
-package tankesmedjan.webshop.repos;
+package tankesmedjan.webshop.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
