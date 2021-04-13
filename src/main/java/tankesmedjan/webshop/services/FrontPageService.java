@@ -7,6 +7,9 @@ import tankesmedjan.webshop.models.FrontpageSlide;
 import tankesmedjan.webshop.repos.FrontpageBannerRepo;
 import tankesmedjan.webshop.repos.FrontpageSlideRepo;
 
+/**
+ * Unused as of now, kept in case of future usage.
+ */
 @Service
 public class FrontPageService {
 
@@ -14,16 +17,28 @@ public class FrontPageService {
     private final FrontpageBannerRepo frontpageBannerRepo;
 
     @Autowired
-    FrontPageService(FrontpageSlideRepo frontpageSlideRepo, FrontpageBannerRepo frontpageBannerRepo){
+    FrontPageService(FrontpageSlideRepo frontpageSlideRepo, FrontpageBannerRepo frontpageBannerRepo) {
         this.frontpageSlideRepo = frontpageSlideRepo;
         this.frontpageBannerRepo = frontpageBannerRepo;
     }
 
-    public FrontpageSlide addSlides(FrontpageSlide frontpageSlide){
+    /**
+     * The slides are used in the front-end carousel and hardcoded at the time of writing.
+     *
+     * @param frontpageSlide a frontpageSlide body.
+     * @return the new frontpageSlide.
+     */
+    public FrontpageSlide addSlides(FrontpageSlide frontpageSlide) {
         return frontpageSlideRepo.save(frontpageSlide);
     }
 
-    public FrontpageBanner addBanners(FrontpageBanner frontpageBanner){
+    /**
+     * The banners are located below the featured products and hardcoded at the time of writing.
+     *
+     * @param frontpageBanner a frontpageBanner body.
+     * @return the new frontpageBanner.
+     */
+    public FrontpageBanner addBanners(FrontpageBanner frontpageBanner) {
         return frontpageBannerRepo.save(frontpageBanner);
     }
 
