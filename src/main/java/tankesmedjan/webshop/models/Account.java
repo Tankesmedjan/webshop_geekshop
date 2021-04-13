@@ -34,14 +34,5 @@ public class Account {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     @JsonIgnore
-    private List<ProductRating> productRating = new ArrayList<ProductRating>();
-
-/*    public void setPassword(String password) {
-        String sha256hex = Hashing.sha256()
-                .hashString(password, StandardCharsets.UTF_8)
-                .toString();
-        this.password = sha256hex;
-    }
-
- */
+    private List<ProductRating> productRating = new ArrayList<>();
 }

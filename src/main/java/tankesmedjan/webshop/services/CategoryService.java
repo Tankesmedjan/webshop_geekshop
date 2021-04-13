@@ -3,9 +3,9 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.CategoryDTO;
+import tankesmedjan.webshop.mappers.CategoryMapper;
 import tankesmedjan.webshop.models.Category;
 import tankesmedjan.webshop.models.SKU;
-import tankesmedjan.webshop.mappers.CategoryMapper;
 import tankesmedjan.webshop.repos.CategoryRepo;
 import tankesmedjan.webshop.repos.ProductRepo;
 

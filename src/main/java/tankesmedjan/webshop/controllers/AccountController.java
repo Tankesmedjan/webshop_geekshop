@@ -1,6 +1,5 @@
 package tankesmedjan.webshop.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +14,12 @@ import java.util.List;
 @RequestMapping("/api/accounts")
 public class AccountController {
 
+    private final AccountService accountService;
+
     @Autowired
-    private AccountService accountService;
+    public AccountController(AccountService accountService){
+        this.accountService = accountService;
+    }
 
     @GetMapping
     public List<Account> getAccounts() {
@@ -25,8 +28,7 @@ public class AccountController {
 
     @PostMapping
     public AccountAndCostumerCreationDTO createAccount(@RequestBody AccountAndCostumerCreationDTO account) {
-        accountService.saveAccount(account);
-        return account;
+        return accountService.saveAccount(account);
     }
 
     @PostMapping("/auth")

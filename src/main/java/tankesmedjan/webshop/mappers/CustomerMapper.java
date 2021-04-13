@@ -18,5 +18,6 @@ public interface CustomerMapper {
     @Mapping(source = "city" , target = "city")
     @Mapping(source = "phone" , target = "phone")
     @Mapping(source = "email" , target = "email")
+    @Mapping(source = "account_id", target = "account.id")
     Customer dtoToCustomer (AccountAndCostumerCreationDTO accountAndCostumerCreationDTO);
 }
