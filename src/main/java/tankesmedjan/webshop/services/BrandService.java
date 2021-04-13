@@ -25,6 +25,7 @@ public class BrandService {
     }
 
     /**
+     * Method to save a new Brand to the database.
      * @param brandDTO is the input from the user, and maps to the entity brand through mapstruct.
      * @return the input from the user.
      */
@@ -51,7 +52,7 @@ public class BrandService {
 
     /**
      * @param id is the input from the user, and represent the id of a brand if it exists in the database.
-     * @return all products from that specific brand.
+     * @return a list of all the products in the brand the id represents.
      */
     public List<SKU> getProductsByBrandId(Long id) {
         return productRepo.findAllByBrands_Id(id);

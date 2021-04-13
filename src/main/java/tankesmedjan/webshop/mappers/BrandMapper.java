@@ -6,12 +6,16 @@ import org.mapstruct.factory.Mappers;
 import tankesmedjan.webshop.dto.BrandDTO;
 import tankesmedjan.webshop.models.Brand;
 
+/**
+ * Mapper with MapStruct
+ * https://mapstruct.org/documentation/reference-guide/
+ *
+ * Maps the dto:information to entities
+ */
 
 @Mapper
 public interface BrandMapper {
-    /**
-     * BrandMapper maps the BrandDTO to the brand entity.
-     */
+
     BrandMapper INSTANCE = Mappers.getMapper( BrandMapper.class );
 
     @Mapping(source = "brandName", target = "brandName")
