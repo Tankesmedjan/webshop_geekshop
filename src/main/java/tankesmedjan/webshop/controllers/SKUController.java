@@ -16,11 +16,12 @@ public class SKUController {
     @Autowired
     private SKUService skuService;
 
-    @PostMapping
-    public SKU addSKU(@RequestBody SKU sku) {
-        skuService.addSKU(sku);
-        return sku;
-    }
+    //ToDo: remove when confirmed working
+//    @PostMapping
+//    public SKU addSKU(@RequestBody SKU sku) {
+//        skuService.addSKU(sku);
+//        return sku;
+//    }
 
     @GetMapping
     public List<SKU> getAllSKU() {
