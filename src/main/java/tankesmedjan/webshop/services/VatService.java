@@ -6,6 +6,9 @@ import tankesmedjan.webshop.repos.VatRepo;
 
 import java.util.List;
 
+/**
+ * Unused as of now, kept in case of future usage.
+ */
 @Service
 public class VatService {
 
@@ -15,6 +18,10 @@ public class VatService {
         this.vatRepo = vatRepo;
     }
 
+    /**
+     *
+     * @return a list of all Vats.
+     */
     public List<Vat> getVats() {
         return vatRepo.findAll();
     }
