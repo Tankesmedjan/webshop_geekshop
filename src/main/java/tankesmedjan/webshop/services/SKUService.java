@@ -17,15 +17,14 @@ public class SKUService {
         this.skuRepo = skuRepo;
     }
 
-    //ToDo: Remove when confirmed working.
-//    /**
-//     *
-//     * @param sku The body of a SKU (Stock keeping unit).
-//     * @return the SKU.
-//     */
-//    public SKU addSKU(SKU sku){
-//        return skuRepo.save(sku);
-//    }
+    /**
+     *
+     * @param sku The body of a SKU (Stock keeping unit).
+     * @return the SKU.
+     */
+    public SKU addSKU(SKU sku){
+        return skuRepo.save(sku);
+    }
 
     /**
      * Gets all SKUs in the database.

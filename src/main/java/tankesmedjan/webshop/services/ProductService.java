@@ -3,7 +3,9 @@ package tankesmedjan.webshop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.ProductDTO;
+import tankesmedjan.webshop.dto.SkuDTO;
 import tankesmedjan.webshop.mappers.ProductMapper;
+import tankesmedjan.webshop.mappers.SkuMapper;
 import tankesmedjan.webshop.models.*;
 import tankesmedjan.webshop.repos.ProductRepo;
 
@@ -51,7 +53,8 @@ public class ProductService {
             productDTO.setAttributeOptionId(productDTO.getAttributeOptionId());
         }
 
-        SKU sku = new SKU(productDTO);
+        SkuDTO skuDTO = new SkuDTO(productDTO);
+        SKU sku = SkuMapper.INSTANCE.dtoToSku(skuDTO);
         skuService.addSKU(sku);
 
         return productDTO;

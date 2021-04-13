@@ -14,17 +14,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class SKU {
 
-    //ToDo: remove when confirmed working
-//    public SKU(ProductDTO sku) {
-//        this.sku = sku.getSku();
-//        this.stock = sku.getStock();
-//        this.attributeOption = new AttributeOption();
-//        this.attributeOption.setId(sku.getAttributeOptionId());
-//        this.product = new Product();
-//        this.product.setId(sku.getProductId());
-//    }
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

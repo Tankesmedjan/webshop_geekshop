@@ -16,13 +16,6 @@ public class SKUController {
     @Autowired
     private SKUService skuService;
 
-    //ToDo: remove when confirmed working
-//    @PostMapping
-//    public SKU addSKU(@RequestBody SKU sku) {
-//        skuService.addSKU(sku);
-//        return sku;
-//    }
-
     @GetMapping
     public List<SKU> getAllSKU() {
         return skuService.getAllSku();
