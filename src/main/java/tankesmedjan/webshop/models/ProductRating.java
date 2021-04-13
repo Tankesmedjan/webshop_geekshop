@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
-import tankesmedjan.webshop.dto.ProductRatingDTO;
 
 import javax.persistence.*;
 
@@ -15,19 +14,6 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 public class ProductRating {
-
-//    public ProductRating(ProductRatingDTO productRating) {
-//
-//        this.rating = productRating.getRating();
-//        this.ratingMessage = productRating.getRatingMessage();
-//
-//        this.product = new Product();
-//        this.product.setId(productRating.getProductId());
-//
-//        this.account = new Account();
-//        this.account.setId(productRating.getAccountId());
-//    }
-
 
     @Id
     @Column(length = 10)

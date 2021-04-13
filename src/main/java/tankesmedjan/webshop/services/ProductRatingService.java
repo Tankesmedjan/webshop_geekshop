@@ -7,6 +7,8 @@ import tankesmedjan.webshop.mappers.ProductRatingMapper;
 import tankesmedjan.webshop.models.ProductRating;
 import tankesmedjan.webshop.repos.ProductRatingRepo;
 
+import java.util.List;
+
 @Service
 public class ProductRatingService {
 
@@ -31,4 +33,20 @@ public class ProductRatingService {
         return productRatingDTO;
     }
 
+    /**
+     * Finds all ratings in the database.
+     *
+     * @return all ratings.
+     */
+    public List<ProductRating> getAllProductRating(){ return productRatingRepo.findAll();}
+
+    /**
+     *
+     * @param rating takes Integer.
+     * @return list with given rating.
+     */
+
+    public List<ProductRating> getRatingsByRating(int rating) {
+        return productRatingRepo.findByRating(rating);
+    }
 }

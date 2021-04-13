@@ -4,7 +4,10 @@ package tankesmedjan.webshop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.ProductRatingDTO;
+import tankesmedjan.webshop.models.ProductRating;
 import tankesmedjan.webshop.services.ProductRatingService;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -15,7 +18,10 @@ public class ProductRatingController {
     private ProductRatingService productRatingService;
 
     @PostMapping
-    public ProductRatingDTO addProducts(@RequestBody ProductRatingDTO productRatingDTO) {
+    public ProductRatingDTO addProductRating(@RequestBody ProductRatingDTO productRatingDTO) {
         return productRatingService.addProductRating(productRatingDTO);
     }
+
+    @GetMapping
+    public List<ProductRating> getAllProductRating(){ return productRatingService.getAllProductRating(); }
 }
