@@ -28,6 +28,15 @@ public class AccountService {
         return accountRepo.findAll();
     }
 
+    /**
+     *
+     * @param accountAndCostumerCreationDTO takes information about user for creating new account.
+     * AccountMapper maps the dto:information to entities.
+     *
+     * Same for CustomerMapper.
+     * @return
+     */
+
     public AccountAndCostumerCreationDTO saveAccount(AccountAndCostumerCreationDTO accountAndCostumerCreationDTO){
         Account createNewAccount = AccountMapper.INSTANCE.dtoToAccount(accountAndCostumerCreationDTO);
         accountRepo.save(createNewAccount);
@@ -39,14 +48,35 @@ public class AccountService {
         return accountAndCostumerCreationDTO;
     }
 
+    /**
+     *
+     * @param id the unique ID of an account
+     * @return the account informtaion for id
+     */
+
     public List<Account> getAccount(String id) {
         return accountRepo.getAccountById(id);
     }
+
+    /**
+     *
+     * @param username
+     * @param password
+     *
+     * @return If there is no match in database for username+password with false otherwise true.
+     */
 
     public Boolean checkAuth(String username, String password) {
         if (accountRepo.findAccountByUsernameAndPassword(username, password).isEmpty()) return false;
         return true;
     }
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return object of the logged in account
+     */
 
     public List<Account> getUserData(String username, String password) {
         return accountRepo.findAccountByUsernameAndPassword(username, password);
