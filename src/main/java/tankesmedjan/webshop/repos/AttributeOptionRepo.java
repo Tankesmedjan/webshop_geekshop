@@ -7,6 +7,11 @@ import tankesmedjan.webshop.models.SKU;
 
 import java.util.List;
 
+/**
+ * Query to get all available attributes for provided productID
+ * returns a list of sku:s
+ */
+
 public interface AttributeOptionRepo extends CrudRepository<AttributeOption, Integer> {
     @Query("SELECT s1, a1 from SKU s1 " +
             "inner join AttributeOption a1 on " +

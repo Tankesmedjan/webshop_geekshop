@@ -23,11 +23,21 @@ public class AttributeService {
     @Autowired
     private AttributeOptionRepo attributeOptionRepo;
 
+    /**
+     * @param attributeDTO is the input from the user, and maps to the entity attribute through mapstruct.
+     * @return the input from the user.
+     */
+
     public AttributeDTO saveAttribute(AttributeDTO attributeDTO) {
         Attribute addNewAttribute = AttributeMapper.INSTANCE.DtoToAttribute(attributeDTO);
         attributeRepo.save(addNewAttribute);
         return attributeDTO;
     }
+
+    /**
+     * @param attributeOptionDTO is the input from the user, and maps to the entity attributeOption through mapstruct.
+     * @return the input from the user.
+     */
 
     public AttributeOptionDTO addAttributeOption(AttributeOptionDTO attributeOptionDTO) {
         AttributeOption addNewAttributeOption =
@@ -36,6 +46,12 @@ public class AttributeService {
 
         return attributeOptionDTO;
     }
+
+    /**
+     *
+     * @param id takes provided id
+     * @return Sorted List from query in repo.
+     */
 
     public List<SKU> getAttributesListForProductId(Long id) {
         return attributeOptionRepo.findAllAttributesForProduct(id);
