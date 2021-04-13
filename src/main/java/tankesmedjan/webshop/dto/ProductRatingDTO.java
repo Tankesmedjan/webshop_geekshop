@@ -10,6 +10,6 @@ public class ProductRatingDTO {
     private int rating;
     private String ratingMessage;
 
-    private String accountId;
+    private String customerId;
     private Long productId;
 }

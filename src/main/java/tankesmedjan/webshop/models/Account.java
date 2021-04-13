@@ -31,8 +31,4 @@ public class Account {
     private String password;
     private String role;
 
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
-    @JsonIgnore
-    private List<ProductRating> productRating = new ArrayList<>();
 }

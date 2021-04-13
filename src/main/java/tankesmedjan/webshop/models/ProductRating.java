@@ -16,17 +16,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class ProductRating {
 
-    public ProductRating(ProductRatingDTO productRating) {
-
-        this.rating = productRating.getRating();
-        this.ratingMessage = productRating.getRatingMessage();
-
-        this.product = new Product();
-        this.product.setId(productRating.getProductId());
-
-        this.account = new Account();
-        this.account.setId(productRating.getAccountId());
-    }
+//    public ProductRating(ProductRatingDTO productRating) {
+//
+//        this.rating = productRating.getRating();
+//        this.ratingMessage = productRating.getRatingMessage();
+//
+//        this.product = new Product();
+//        this.product.setId(productRating.getProductId());
+//
+//        this.account = new Account();
+//        this.account.setId(productRating.getAccountId());
+//    }
 
 
     @Id
@@ -46,8 +46,8 @@ public class ProductRating {
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "accountId", nullable = true)
+    @JoinColumn(name = "customerId", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyIntitializer", "handler"})
-    private Account account;
+    private Customer customer;
 
 }
