@@ -3,6 +3,7 @@ package tankesmedjan.webshop.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.hash.Hashing;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Account {
 
     @Id
@@ -34,10 +36,12 @@ public class Account {
     @JsonIgnore
     private List<ProductRating> productRating = new ArrayList<ProductRating>();
 
-    public void setPassword(String password) {
+/*    public void setPassword(String password) {
         String sha256hex = Hashing.sha256()
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();
         this.password = sha256hex;
     }
+
+ */
 }

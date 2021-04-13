@@ -4,13 +4,13 @@ COPY mvnw .
 COPY .mvn .mvn
 
 COPY pom.xml .
-RUN ./mvnw dependency:go-offline -B
+RUN ./mvn dependency:go-offline -B
 
 COPY src src
 
 RUN ./mvn package -DskipTests
 FROM openjdk:11
 
-COPY /target/demo-0.0.1-SNAPSHOT.jar geekshop-backend.jar
+COPY /target/GeekSqueek-0.0.1-SNAPSHOT.jar geeksqueek-backend.jar
 
-ENTRYPOINT ["java", "-jar", "/geekshop-backend.jar"]
+ENTRYPOINT ["java", "-jar", "/geeksqueek-backend.jar"]

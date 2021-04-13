@@ -8,13 +8,14 @@
         <version>2.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>hejmi</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>tankesmedjan</groupId>
+    <artifactId>GeekSqueek</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>GeekSqueek backend</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
+        <start-class>tankesmedjan.webshop.DemoApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
@@ -25,7 +26,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -73,6 +73,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.4</version>
                 <configuration>
                     <excludes>
                         <exclude>
