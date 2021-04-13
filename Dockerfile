@@ -1,16 +1,12 @@
-FROM openjdk:11 as build
-
-COPY mvnw .
-COPY .mvn .mvn
+FROM maven:3.8.1-jdk-11 AS MAVEN_BUILD
 
 COPY pom.xml .
-RUN ./mvn dependency:go-offline -B
-
 COPY src src
 
-RUN ./mvn package -DskipTests
+RUN mvn package -DskipTests
+
 FROM openjdk:11
 
-COPY /target/GeekSqueek-0.0.1-SNAPSHOT.jar geeksqueek-backend.jar
+COPY --from=MAVEN_BUILD /target/GeekSqueek-0.0.1-SNAPSHOT.jar geeksqueek-backend.jar
 
 ENTRYPOINT ["java", "-jar", "/geeksqueek-backend.jar"]
