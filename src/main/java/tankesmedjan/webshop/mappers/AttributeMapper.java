@@ -6,6 +6,13 @@ import org.mapstruct.factory.Mappers;
 import tankesmedjan.webshop.dto.AttributeDTO;
 import tankesmedjan.webshop.models.Attribute;
 
+/**
+ * Mapper with MapStruct
+ * https://mapstruct.org/documentation/reference-guide/
+ *
+ * Maps the dto:information to entities
+ */
+
 @Mapper
 public interface AttributeMapper {
 

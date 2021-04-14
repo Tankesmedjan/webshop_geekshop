@@ -6,7 +6,6 @@ import org.mapstruct.factory.Mappers;
 import tankesmedjan.webshop.dto.AccountAndCostumerCreationDTO;
 import tankesmedjan.webshop.models.Account;
 
-
 /**
  * Mapper with MapStruct
  * https://mapstruct.org/documentation/reference-guide/

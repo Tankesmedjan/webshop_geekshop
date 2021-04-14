@@ -6,6 +6,13 @@ import org.mapstruct.factory.Mappers;
 import tankesmedjan.webshop.dto.ProductRatingDTO;
 import tankesmedjan.webshop.models.ProductRating;
 
+/**
+ * Mapper with MapStruct
+ * https://mapstruct.org/documentation/reference-guide/
+ *
+ * Maps the dto:information to entities
+ */
+
 @Mapper
 public interface ProductRatingMapper {
 

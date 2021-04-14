@@ -8,6 +8,13 @@ import tankesmedjan.webshop.dto.SkuDTO;
 import tankesmedjan.webshop.models.Customer;
 import tankesmedjan.webshop.models.SKU;
 
+/**
+ * Mapper with MapStruct
+ * https://mapstruct.org/documentation/reference-guide/
+ *
+ * Maps the dto:information to entities
+ */
+
 @Mapper
 public interface SkuMapper {
 
