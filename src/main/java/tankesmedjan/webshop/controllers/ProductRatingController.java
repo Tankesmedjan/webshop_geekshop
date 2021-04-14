@@ -1,6 +1,5 @@
 package tankesmedjan.webshop.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +14,12 @@ import java.util.List;
 @RequestMapping("/api/productrating")
 public class ProductRatingController {
 
+    private final ProductRatingService productRatingService;
+
     @Autowired
-    private ProductRatingService productRatingService;
+    public ProductRatingController(ProductRatingService productRatingService){
+        this.productRatingService = productRatingService;
+    }
 
     @PostMapping
     public ProductRatingDTO addProductRating(@RequestBody ProductRatingDTO productRatingDTO) {

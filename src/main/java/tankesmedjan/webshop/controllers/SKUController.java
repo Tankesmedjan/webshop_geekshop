@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/api/sku")
 public class SKUController {
 
+    private final SKUService skuService;
+
     @Autowired
-    private SKUService skuService;
+    public SKUController(SKUService skuService){
+        this.skuService = skuService;
+    }
 
     @GetMapping
     public List<SKU> getAllSKU() {

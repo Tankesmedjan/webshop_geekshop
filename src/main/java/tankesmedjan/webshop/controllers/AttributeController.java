@@ -15,8 +15,12 @@ import java.util.List;
 @RequestMapping("/api/attributes")
 public class AttributeController {
 
+    private final AttributeService attributeService;
+
     @Autowired
-    private AttributeService attributeService;
+    public AttributeController(AttributeService attributeService){
+        this.attributeService = attributeService;
+    }
 
     @PostMapping
     public AttributeDTO addAttribute(@RequestBody AttributeDTO attribute) {

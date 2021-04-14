@@ -15,8 +15,12 @@ import java.util.List;
 @RequestMapping("/api/vat")
 public class VatController {
 
+    private final VatService vatService;
+
     @Autowired
-    private VatService vatService;
+    public VatController(VatService vatService){
+        this.vatService = vatService;
+    }
 
     @GetMapping
     public List<Vat> getVats(){

@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/api/customer")
 public class CustomerController {
 
+    private final CustomerService customerService;
+
     @Autowired
-    private CustomerService customerService;
+    public CustomerController(CustomerService customerService){
+        this.customerService = customerService;
+    }
 
     @PostMapping
     public Customer addCustomer(@RequestBody Customer customer){

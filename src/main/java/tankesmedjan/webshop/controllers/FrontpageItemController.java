@@ -11,8 +11,12 @@ import tankesmedjan.webshop.services.FrontPageService;
 @RequestMapping("/api/frontpageitems")
 public class FrontpageItemController {
 
+    private final FrontPageService frontPageService;
+
     @Autowired
-    private FrontPageService frontPageService;
+    public FrontpageItemController(FrontPageService frontPageService){
+        this.frontPageService = frontPageService;
+    }
 
     @PostMapping("/slides")
     public FrontpageSlide addSlide(@RequestBody FrontpageSlide slide ) {
