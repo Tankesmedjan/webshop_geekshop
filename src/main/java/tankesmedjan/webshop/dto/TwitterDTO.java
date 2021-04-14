@@ -10,6 +10,6 @@ public class TwitterDTO {
 
     private String message;
     private String url;
-    private int hashtag;
+    private String hashtag;
 
 }

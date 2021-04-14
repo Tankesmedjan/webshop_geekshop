@@ -10,8 +10,7 @@ public class HashtagDTO {
     public int hashtagId;
     public String hashtagName;
 
-    public HashtagDTO(int id, String hashtagName) {
-        this.hashtagId = id;
+    public HashtagDTO( String hashtagName) {
         this.hashtagName = hashtagName;
     }
 }

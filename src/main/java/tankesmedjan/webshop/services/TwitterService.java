@@ -5,8 +5,9 @@ import org.springframework.transaction.annotation.Transactional;
 import tankesmedjan.webshop.dto.HashtagDTO;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+import java.util.stream.*;
 
 @Service
 @Transactional
@@ -15,21 +16,18 @@ public class TwitterService {
     Logger logger = Logger.getLogger(TwitterService.class);
 
     public List<HashtagDTO> getHashtags() throws TwitterException {
-        List<HashtagDTO> hashtags = new ArrayList<>();
+
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
         Trends trends = twitter.getPlaceTrends(23424975);
-        int count = 0;
-        for (Trend trend : trends.getTrends()) {
-            if (count < 10 && trend.getName().contains("#")) {
-                HashtagDTO hashtagDTO = new HashtagDTO((count + 1), trend.getName());
-                hashtags.add(hashtagDTO);
-                count++;
-            }
-        }
-        return hashtags;
+
+        var hash = Arrays.stream(trends.getTrends())
+                .map(trend -> new HashtagDTO(trend.getName()))
+                .filter(h -> h.hashtagName.contains("#"))
+                .collect(Collectors.toList());
+        return hash;
     }
 
     public String postToTwitter(String message) throws TwitterException {
