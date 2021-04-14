@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 public class AttributeOption {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

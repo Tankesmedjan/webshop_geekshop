@@ -1,8 +1,5 @@
 package tankesmedjan.webshop.models;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.common.hash.Hashing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +7,6 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @Getter
