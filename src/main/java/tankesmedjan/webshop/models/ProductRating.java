@@ -15,13 +15,17 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class ProductRating {
 
+    public ProductRating(Double rating) {
+        this.rating = rating;
+    }
+
     @Id
     @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 1)
-    private int rating;
+    private Double rating;
 
     @Type(type = "text")
     private String ratingMessage;

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.dto.ProductRatingDTO;
 import tankesmedjan.webshop.mappers.ProductRatingMapper;
+import tankesmedjan.webshop.models.Product;
 import tankesmedjan.webshop.models.ProductRating;
 import tankesmedjan.webshop.repos.ProductRatingRepo;
 
@@ -42,11 +43,13 @@ public class ProductRatingService {
 
     /**
      *
-     * @param rating takes Integer.
-     * @return list with given rating.
+     * @param Id
+     * @return list with given rating for specific id.
      */
 
-    public List<ProductRating> getRatingsByRating(int rating) {
-        return productRatingRepo.findByRating(rating);
+    //TODO: finsih him!
+
+    public List<ProductRating> getAverageRatingsByProductIds(Long Id) {
+        return productRatingRepo.getAverageRatingsByProductId(Id);
     }
 }

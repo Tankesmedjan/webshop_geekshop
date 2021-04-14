@@ -2,6 +2,7 @@ package tankesmedjan.webshop.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import tankesmedjan.webshop.dto.ProductRatingDTO;
 import tankesmedjan.webshop.models.ProductRating;
@@ -23,5 +24,7 @@ public class ProductRatingController {
     }
 
     @GetMapping
-    public List<ProductRating> getAllProductRating(){ return productRatingService.getAllProductRating(); }
+    public List<ProductRating> getAllProductRating(@Param("id") Long id){
+
+        return productRatingService.getAverageRatingsByProductIds(id); }
 }

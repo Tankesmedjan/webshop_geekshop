@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class ProductRatingDTO {
 
-    private int rating;
+    private Double rating;
     private String ratingMessage;
 
     private String customerId;
