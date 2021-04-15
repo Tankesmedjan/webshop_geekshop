@@ -20,13 +20,11 @@ public class FrontpageItemController {
 
     @PostMapping("/slides")
     public FrontpageSlide addSlide(@RequestBody FrontpageSlide slide ) {
-        frontPageService.addSlides(slide);
-        return slide;
+        return frontPageService.addSlides(slide);
     }
 
     @PostMapping("/banners")
     public FrontpageBanner addBanner(@RequestBody FrontpageBanner banner ) {
-        frontPageService.addBanners(banner);
-        return banner;
+        return frontPageService.addBanners(banner);
     }
 }

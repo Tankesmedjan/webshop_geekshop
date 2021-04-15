@@ -15,13 +15,12 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepo productRepo;
+    private final SKUService skuService;
 
     @Autowired
-    private SKUService skuService;
-
-    @Autowired
-    public ProductService(ProductRepo productRepo) {
+    public ProductService(ProductRepo productRepo, SKUService skuService) {
         this.productRepo = productRepo;
+        this.skuService = skuService;
     }
 
     /**

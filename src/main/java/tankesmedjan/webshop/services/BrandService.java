@@ -15,7 +15,6 @@ import java.util.List;
 public class BrandService {
 
     private final BrandRepo brandRepo;
-
     private final ProductRepo productRepo;
 
     @Autowired

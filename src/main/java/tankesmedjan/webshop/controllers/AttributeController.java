@@ -24,13 +24,11 @@ public class AttributeController {
 
     @PostMapping
     public AttributeDTO addAttribute(@RequestBody AttributeDTO attribute) {
-        attributeService.saveAttribute(attribute);
-        return attribute;
+        return attributeService.saveAttribute(attribute);
     }
     @PostMapping("/option")
     public AttributeOptionDTO addAttributeOption(@RequestBody AttributeOptionDTO attributeOptionDTO) {
-        attributeService.addAttributeOption(attributeOptionDTO);
-        return attributeOptionDTO;
+        return attributeService.addAttributeOption(attributeOptionDTO);
     }
 
     @GetMapping("/product")

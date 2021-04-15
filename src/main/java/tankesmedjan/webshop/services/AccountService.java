@@ -15,7 +15,6 @@ import java.util.List;
 public class AccountService {
 
     private final AccountRepo accountRepo;
-
     private final CustomerService customerService;
 
     @Autowired
@@ -67,8 +66,7 @@ public class AccountService {
      */
 
     public Boolean checkAuth(String username, String password) {
-        if (accountRepo.findAccountByUsernameAndPassword(username, password).isEmpty()) return false;
-        return true;
+        return !accountRepo.findAccountByUsernameAndPassword(username, password).isEmpty();
     }
 
     /**

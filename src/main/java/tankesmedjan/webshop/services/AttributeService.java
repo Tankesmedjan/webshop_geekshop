@@ -17,12 +17,14 @@ import java.util.List;
 @Service
 public class AttributeService {
 
-    @Autowired
-    private AttributeRepo attributeRepo;
+    private final AttributeRepo attributeRepo;
+    private final AttributeOptionRepo attributeOptionRepo;
 
     @Autowired
-    private AttributeOptionRepo attributeOptionRepo;
-
+    public AttributeService(AttributeRepo attributeRepo, AttributeOptionRepo attributeOptionRepo){
+        this.attributeRepo = attributeRepo;
+        this.attributeOptionRepo = attributeOptionRepo;
+    }
     /**
      * @param attributeDTO is the input from the user, and maps to the entity attribute through mapstruct.
      * @return the input from the user.
@@ -43,7 +45,6 @@ public class AttributeService {
         AttributeOption addNewAttributeOption =
                 AttributeOptionMapper.INSTANCE.DtoToAttributeOption(attributeOptionDTO);
         attributeOptionRepo.save(addNewAttributeOption);
-
         return attributeOptionDTO;
     }
 
