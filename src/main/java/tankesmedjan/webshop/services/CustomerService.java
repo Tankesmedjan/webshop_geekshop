@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.models.Customer;
 import tankesmedjan.webshop.repos.CustomerRepo;
@@ -11,7 +12,8 @@ public class CustomerService {
 
     private final CustomerRepo customerRepo;
 
-    CustomerService(CustomerRepo customerRepo){
+    @Autowired
+    public CustomerService(CustomerRepo customerRepo){
         this.customerRepo = customerRepo;
     }
 

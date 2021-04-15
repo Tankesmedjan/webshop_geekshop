@@ -1,5 +1,6 @@
 package tankesmedjan.webshop.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tankesmedjan.webshop.models.Vat;
 import tankesmedjan.webshop.repos.VatRepo;
@@ -14,7 +15,8 @@ public class VatService {
 
     private final VatRepo vatRepo;
 
-    VatService(VatRepo vatRepo){
+    @Autowired
+    public VatService(VatRepo vatRepo){
         this.vatRepo = vatRepo;
     }
 
