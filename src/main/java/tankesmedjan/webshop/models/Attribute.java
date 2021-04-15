@@ -12,12 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Attribute {
-
-    public Attribute(AttributeDTO attribute) {
-        this.attributeName = attribute.getAttribute_name();
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
