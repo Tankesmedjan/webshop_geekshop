@@ -50,7 +50,7 @@ public class AccountService {
     /**
      *
      * @param id the unique ID of an account
-     * @return the account informtaion for id
+     * @return the account information for id
      */
 
     public List<Account> getAccount(String id) {

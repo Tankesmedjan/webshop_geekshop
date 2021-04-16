@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tankesmedjan.webshop.dto.HashtagDTO;
 import twitter4j.*;
-import twitter4j.conf.ConfigurationBuilder;
 import java.util.*;
 import java.util.stream.*;
 
@@ -12,6 +11,7 @@ import java.util.stream.*;
 @Transactional
 public class TwitterService {
 
+    private final TwitterFactory tf = new TwitterFactory();
     /**
      * twitter.getPlaceTrends access the trending trends at a certain area(continent, country, state, city).
      * The stream streams the array of trending trends, maps the trend name into a object<HashtagDTO> and then
@@ -19,9 +19,6 @@ public class TwitterService {
      * @return a List<HashtagDTO> with trending hashtags in the UK.
      */
     public List<HashtagDTO> getHashtags() throws TwitterException {
-        ConfigurationBuilder cb = new ConfigurationBuilder();
-        cb.setDebugEnabled(true);
-        TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
         Trends trends = twitter.getPlaceTrends(23424975);
 
